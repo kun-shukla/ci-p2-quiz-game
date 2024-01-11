@@ -68,6 +68,11 @@ let a2;
 let a3;
 let a4;
 
+let ans1;
+let ans2;
+let ans3;
+let ans4;
+
 function displayChoice() {
   wildlifeQuiz[i][1].sort();
   console.log(wildlifeQuiz[i][1]);
@@ -85,3 +90,20 @@ function displayChoice() {
 }
 
 displayChoice();
+
+function getFormInput(event) {
+  event.preventDefault();
+  ans1 = document.getElementById("ans1");
+  ans2 = document.getElementById("ans2");
+  ans3 = document.getElementById("ans3");
+  ans4 = document.getElementById("ans4");
+
+  ans1.value = wildlifeQuiz[i][1][0]
+  ans2.value = wildlifeQuiz[i][1][1];
+  ans3.value = wildlifeQuiz[i][1][2];
+  ans4.value = wildlifeQuiz[i][1][3]
+  console.log(ans1.value, ans2.value, )
+}
+
+let quizForm = document.getElementById('quiz-form')
+  quizForm.addEventListener('submit', getFormInput )
