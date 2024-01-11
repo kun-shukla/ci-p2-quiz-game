@@ -10,7 +10,7 @@ let wildlifeQuiz = [
 
   [
     "What is the world's largest land mammal?",
-    ["Elephant", "Giraffe", , "Rhino", "Hippopotamus"],
+    ["Elephant", "Giraffe","Rhino", "Hippopotamus"],
   ],
 
   [
@@ -48,12 +48,15 @@ let wildlifeQuiz = [
     ["Opossum", "Kangaroo", "Wallaby", "Koala"],
   ],
 ];
-console.log(wildlifeQuiz[0][1]);
+// console.log(wildlifeQuiz[0][1]);
 
 // document.getElementById("a1").innerHTML = "";
 
 let question;
 let i;
+let userChoice;
+let choices;
+let y;
 function askQuestion() {
   question = document.getElementById("question");
   i = Math.floor(Math.random() * (wildlifeQuiz.length - 1));
@@ -63,25 +66,22 @@ function askQuestion() {
 }
 askQuestion();
 
-let a1;
-let a2;
-let a3;
-let a4;
+// let a1;
+// let a2;
+// let a3;
+// let a4;
 
-let ans1;
-let ans2;
-let ans3;
-let ans4;
+
 
 function displayChoice() {
   wildlifeQuiz[i][1].sort();
   console.log(wildlifeQuiz[i][1]);
   //   console.log(wildlifeQuiz);
 
-  a1 = document.getElementById("a1");
-  a2 = document.getElementById("a2");
-  a3 = document.getElementById("a3");
-  a4 = document.getElementById("a4");
+  let a1 = document.getElementById("a1");
+  let a2 = document.getElementById("a2");
+  let a3 = document.getElementById("a3");
+  let a4 = document.getElementById("a4");
 
   a1.innerHTML = wildlifeQuiz[i][1][0];
   a2.innerHTML = wildlifeQuiz[i][1][1];
@@ -91,19 +91,33 @@ function displayChoice() {
 
 displayChoice();
 
-function getFormInput(event) {
+function getUserInput(event) {
   event.preventDefault();
-  ans1 = document.getElementById("ans1");
-  ans2 = document.getElementById("ans2");
-  ans3 = document.getElementById("ans3");
-  ans4 = document.getElementById("ans4");
+  let ans1 = document.getElementById("ans1");
+  let ans2 = document.getElementById("ans2");
+  let ans3 = document.getElementById("ans3");
+  let ans4 = document.getElementById("ans4");
 
   ans1.value = wildlifeQuiz[i][1][0]
   ans2.value = wildlifeQuiz[i][1][1];
   ans3.value = wildlifeQuiz[i][1][2];
   ans4.value = wildlifeQuiz[i][1][3]
-  console.log(ans1.value, ans2.value, )
+  
+  choices = document.getElementsByName('choice');
+            for (y = 0; y < choices.length; y++) {
+                if (choices[y].checked) {
+                  userChoice = choices[y].value
+                    document.getElementById("response").innerHTML
+                        = "Option selected: " + userChoice;
+            }
+}
+checkAnswer(userChoice)
+}
+
+
+  function checkAnswer (someValue) {
+  console.log(someValue)
 }
 
 let quizForm = document.getElementById('quiz-form')
-  quizForm.addEventListener('submit', getFormInput )
+  quizForm.addEventListener('submit', getUserInput )
