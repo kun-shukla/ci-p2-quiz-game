@@ -5,7 +5,9 @@ let wildlifeQuiz = [
     "What is the largest big cat in the world?",
     ["Tiger", "Lion", "Cheetah", "Jaguar"],
   ],
+
   ["Which mammal can fly?", ["Bat", "Penguin", "Kangaroo", "Elephant"]],
+
   [
     "What is the world's largest land mammal?",
     ["Elephant", "Giraffe", , "Rhino", "Hippopotamus"],
@@ -46,5 +48,25 @@ let wildlifeQuiz = [
     ["Opossum", "Kangaroo", "Wallaby", "Koala"],
   ],
 ];
+console.log(wildlifeQuiz[0][1]);
 
-console.log(wildlifeQuiz[1][1][3]);
+// document.getElementById("a1").innerHTML = "";
+
+let question;
+let i;
+function askQuestion() {
+  question = document.getElementById("question");
+  {
+    i = Math.floor(Math.random() * (wildlifeQuiz.length - 1));
+    question.innerHTML = wildlifeQuiz[i][0];
+    // console.log(i);
+    // console.log(wildlifeQuiz[i][0]);
+  }
+}
+askQuestion();
+
+function displayChoice() {
+  let answer = console.log("display: ", i);
+}
+
+displayChoice();
