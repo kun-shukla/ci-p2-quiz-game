@@ -56,17 +56,32 @@ let question;
 let i;
 function askQuestion() {
   question = document.getElementById("question");
-  {
-    i = Math.floor(Math.random() * (wildlifeQuiz.length - 1));
-    question.innerHTML = wildlifeQuiz[i][0];
-    // console.log(i);
-    // console.log(wildlifeQuiz[i][0]);
-  }
+  i = Math.floor(Math.random() * (wildlifeQuiz.length - 1));
+  question.innerHTML = wildlifeQuiz[i][0];
+  // console.log(i);
+  // console.log(wildlifeQuiz[i][0]);
 }
 askQuestion();
 
+let a1;
+let a2;
+let a3;
+let a4;
+
 function displayChoice() {
-  let answer = console.log("display: ", i);
+  wildlifeQuiz[i][1].sort();
+  console.log(wildlifeQuiz[i][1]);
+  //   console.log(wildlifeQuiz);
+
+  a1 = document.getElementById("a1");
+  a2 = document.getElementById("a2");
+  a3 = document.getElementById("a3");
+  a4 = document.getElementById("a4");
+
+  a1.innerHTML = wildlifeQuiz[i][1][0];
+  a2.innerHTML = wildlifeQuiz[i][1][1];
+  a3.innerHTML = wildlifeQuiz[i][1][2];
+  a4.innerHTML = wildlifeQuiz[i][1][3];
 }
 
 displayChoice();
