@@ -46,9 +46,6 @@ let wildlifeQuiz = [
     ["Opossum", "Kangaroo", "Wallaby", "Koala"],
   ],
 ];
-// console.log(wildlifeQuiz[0][1]);
-
-// document.getElementById("a1").innerHTML = "";
 
 let question;
 let i;
@@ -67,20 +64,12 @@ function askQuestion() {
     question.innerHTML = wildlifeQuiz[i][0];
     console.log(question.innerHTML);
     correctAnswer = wildlifeQuiz[i][1][0];
-    // console.log(wildlifeQuiz[i][1]);
-    // console.log(wildlifeQuiz[i][1]);
     console.log(`Correct answer : ${correctAnswer}`); //
-    // console.log(i);
-    // console.log(wildlifeQuiz[i][1][0]);
+
     displayChoice();
   }
 }
 askQuestion();
-
-// let a1;
-// let a2;
-// let a3;
-// let a4;
 
 //this function src is from https://bost.ocks.org/mike/shuffle/
 function shuffle(array) {
@@ -103,11 +92,7 @@ function shuffle(array) {
 }
 
 function displayChoice() {
-  // console.log("BEFORE : ", wildlifeQuiz[i][1]);
-  // wildlifeQuiz[i][1].sort();
   shuffle(wildlifeQuiz[i][1]);
-  // console.log("AFTER : ", wildlifeQuiz[i][1]);
-  //   console.log(wildlifeQuiz);
 
   let a1 = document.getElementById("a1");
   let a2 = document.getElementById("a2");
@@ -119,8 +104,6 @@ function displayChoice() {
   a3.innerHTML = wildlifeQuiz[i][1][2];
   a4.innerHTML = wildlifeQuiz[i][1][3];
 }
-
-// displayChoice();
 
 function getUserInput(event) {
   event.preventDefault();
@@ -135,12 +118,10 @@ function getUserInput(event) {
   ans4.value = wildlifeQuiz[i][1][3];
 
   choices = document.getElementsByName("choice");
-  // console.log(choices);
   for (y = 0; y < choices.length; y++) {
     if (choices[y].checked) {
       userChoice = choices[y].value;
       response = document.getElementById("response");
-      // response.innerHTML = "Option selected: " + userChoice;
     }
   }
   checkAnswer(userChoice);
@@ -160,25 +141,13 @@ function checkAnswer(selectedOption) {
 }
 
 function keepScore() {
-  // if (userValue === correctAnswer) {
   score++;
-  // console.log(score);
-  // alert(`This is your current score: ${score}`);
   response.innerHTML = `Your current score is : <strong>${score}</strong>`;
-  // }
 }
 
 let quizForm = document.getElementById("quiz-form");
 quizForm.addEventListener("submit", getUserInput);
 
 function removeQuestion() {
-  // if (wildlifeQuiz.length === 0) {
-  //   alert("Game Over! Your final score is" + score);
-  // } else {
   wildlifeQuiz.splice(i, 1);
-  // askQuestion();
-  // displayChoice();
 }
-//   console.log(i);
-//   console.log(wildlifeQuiz[i]);
-//   console.log(wildlifeQuiz);
