@@ -44,7 +44,7 @@ let wildlifeQuiz = [
   [
     "What is the only marsupial found in North America?",
     ["Opossum", "Kangaroo", "Wallaby", "Koala"],
-  ],
+  ]
 ];
 
 let question;
@@ -60,7 +60,8 @@ function askQuestion() {
     alert("Game Over! Your final score is : " + score);
   } else {
     question = document.getElementById("question");
-    i = Math.floor(Math.random() * (wildlifeQuiz.length - 1));
+    i = Math.floor(Math.random() * (wildlifeQuiz.length))
+    console.log(i) // for debugging 
     question.innerHTML = wildlifeQuiz[i][0];
     console.log(question.innerHTML);
     correctAnswer = wildlifeQuiz[i][1][0];
