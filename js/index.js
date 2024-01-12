@@ -105,6 +105,7 @@ function getUserInput(event) {
   ans4.value = wildlifeQuiz[i][1][3];
 
   choices = document.getElementsByName("choice");
+  console.log(choices);
   for (y = 0; y < choices.length; y++) {
     if (choices[y].checked) {
       userChoice = choices[y].value;
@@ -117,6 +118,13 @@ function getUserInput(event) {
 
 function checkAnswer(someValue) {
   console.log(someValue);
+  if (someValue === correctAnswer) {
+    alert("correct answer!!!");
+  } else {
+    alert("Oops! That's not Correct!");
+  }
+  askQuestion();
+  displayChoice();
 }
 
 let quizForm = document.getElementById("quiz-form");
