@@ -1,5 +1,3 @@
-console.log("Hello World");
-
 let wildlifeQuiz = [
   [
     "What is the largest big cat in the world?",
@@ -61,16 +59,21 @@ let correctAnswer;
 let score = 0;
 let response;
 function askQuestion() {
-  question = document.getElementById("question");
-  i = Math.floor(Math.random() * (wildlifeQuiz.length - 1));
-  question.innerHTML = wildlifeQuiz[i][0];
-  console.log(question.innerHTML);
-  correctAnswer = wildlifeQuiz[i][1][0];
-  // console.log(wildlifeQuiz[i][1]);
-  // console.log(wildlifeQuiz[i][1]);
-  console.log(`Correct answer : ${correctAnswer}`); //
-  // console.log(i);
-  // console.log(wildlifeQuiz[i][1][0]);
+  if (wildlifeQuiz.length === 0) {
+    alert("Game Over! Your final score is : " + score);
+  } else {
+    question = document.getElementById("question");
+    i = Math.floor(Math.random() * (wildlifeQuiz.length - 1));
+    question.innerHTML = wildlifeQuiz[i][0];
+    console.log(question.innerHTML);
+    correctAnswer = wildlifeQuiz[i][1][0];
+    // console.log(wildlifeQuiz[i][1]);
+    // console.log(wildlifeQuiz[i][1]);
+    console.log(`Correct answer : ${correctAnswer}`); //
+    // console.log(i);
+    // console.log(wildlifeQuiz[i][1][0]);
+    displayChoice();
+  }
 }
 askQuestion();
 
@@ -100,10 +103,10 @@ function shuffle(array) {
 }
 
 function displayChoice() {
-  console.log("BEFORE : ", wildlifeQuiz[i][1]);
+  // console.log("BEFORE : ", wildlifeQuiz[i][1]);
   // wildlifeQuiz[i][1].sort();
   shuffle(wildlifeQuiz[i][1]);
-  console.log("AFTER : ", wildlifeQuiz[i][1]);
+  // console.log("AFTER : ", wildlifeQuiz[i][1]);
   //   console.log(wildlifeQuiz);
 
   let a1 = document.getElementById("a1");
@@ -117,7 +120,7 @@ function displayChoice() {
   a4.innerHTML = wildlifeQuiz[i][1][3];
 }
 
-displayChoice();
+// displayChoice();
 
 function getUserInput(event) {
   event.preventDefault();
@@ -132,7 +135,7 @@ function getUserInput(event) {
   ans4.value = wildlifeQuiz[i][1][3];
 
   choices = document.getElementsByName("choice");
-  console.log(choices);
+  // console.log(choices);
   for (y = 0; y < choices.length; y++) {
     if (choices[y].checked) {
       userChoice = choices[y].value;
@@ -152,25 +155,30 @@ function checkAnswer(selectedOption) {
     alert("Oops! That's not Correct!");
   }
   removeQuestion();
+  console.log(wildlifeQuiz);
   askQuestion();
-  displayChoice();
 }
 
 function keepScore() {
   // if (userValue === correctAnswer) {
   score++;
-  console.log(score);
-  alert(`This is your current score: ${score}`);
+  // console.log(score);
+  // alert(`This is your current score: ${score}`);
   response.innerHTML = `Your current score is : <strong>${score}</strong>`;
   // }
 }
 
-function removeQuestion() {
-  wildlifeQuiz.splice(i, 1);
-  console.log(i);
-  console.log(wildlifeQuiz[i]);
-  console.log(wildlifeQuiz);
-}
-
 let quizForm = document.getElementById("quiz-form");
 quizForm.addEventListener("submit", getUserInput);
+
+function removeQuestion() {
+  // if (wildlifeQuiz.length === 0) {
+  //   alert("Game Over! Your final score is" + score);
+  // } else {
+  wildlifeQuiz.splice(i, 1);
+  // askQuestion();
+  // displayChoice();
+}
+//   console.log(i);
+//   console.log(wildlifeQuiz[i]);
+//   console.log(wildlifeQuiz);
