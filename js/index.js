@@ -58,6 +58,8 @@ let userChoice;
 let choices;
 let y;
 let correctAnswer;
+let score = 0;
+let response;
 function askQuestion() {
   question = document.getElementById("question");
   i = Math.floor(Math.random() * (wildlifeQuiz.length - 1));
@@ -130,22 +132,32 @@ function getUserInput(event) {
   for (y = 0; y < choices.length; y++) {
     if (choices[y].checked) {
       userChoice = choices[y].value;
-      document.getElementById("response").innerHTML =
-        "Option selected: " + userChoice;
+      response = document.getElementById("response");
+      response.innerHTML = "Option selected: " + userChoice;
     }
   }
   checkAnswer(userChoice);
 }
 
-function checkAnswer(someValue) {
-  console.log(someValue);
-  if (someValue === correctAnswer) {
+function checkAnswer(selectedOption) {
+  console.log(selectedOption);
+  if (selectedOption === correctAnswer) {
     alert("correct answer!!!");
+    keepScore(userChoice);
   } else {
     alert("Oops! That's not Correct!");
   }
   askQuestion();
   displayChoice();
+}
+
+function keepScore() {
+  // if (userValue === correctAnswer) {
+  score++;
+  console.log(score);
+  alert(`This is your current score: ${score}`);
+  response.innerHTML = `Your current score is : <strong>${score}</strong>`;
+  // }
 }
 
 let quizForm = document.getElementById("quiz-form");
