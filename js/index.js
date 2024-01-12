@@ -64,7 +64,10 @@ function askQuestion() {
   question = document.getElementById("question");
   i = Math.floor(Math.random() * (wildlifeQuiz.length - 1));
   question.innerHTML = wildlifeQuiz[i][0];
+  console.log(question.innerHTML);
   correctAnswer = wildlifeQuiz[i][1][0];
+  // console.log(wildlifeQuiz[i][1]);
+  // console.log(wildlifeQuiz[i][1]);
   console.log(`Correct answer : ${correctAnswer}`); //
   // console.log(i);
   // console.log(wildlifeQuiz[i][1][0]);
@@ -97,9 +100,10 @@ function shuffle(array) {
 }
 
 function displayChoice() {
+  console.log("BEFORE : ", wildlifeQuiz[i][1]);
   // wildlifeQuiz[i][1].sort();
   shuffle(wildlifeQuiz[i][1]);
-  console.log(wildlifeQuiz[i][1]);
+  console.log("AFTER : ", wildlifeQuiz[i][1]);
   //   console.log(wildlifeQuiz);
 
   let a1 = document.getElementById("a1");
@@ -133,7 +137,7 @@ function getUserInput(event) {
     if (choices[y].checked) {
       userChoice = choices[y].value;
       response = document.getElementById("response");
-      response.innerHTML = "Option selected: " + userChoice;
+      // response.innerHTML = "Option selected: " + userChoice;
     }
   }
   checkAnswer(userChoice);
@@ -147,6 +151,7 @@ function checkAnswer(selectedOption) {
   } else {
     alert("Oops! That's not Correct!");
   }
+  removeQuestion();
   askQuestion();
   displayChoice();
 }
@@ -158,6 +163,13 @@ function keepScore() {
   alert(`This is your current score: ${score}`);
   response.innerHTML = `Your current score is : <strong>${score}</strong>`;
   // }
+}
+
+function removeQuestion() {
+  wildlifeQuiz.splice(i, 1);
+  console.log(i);
+  console.log(wildlifeQuiz[i]);
+  console.log(wildlifeQuiz);
 }
 
 let quizForm = document.getElementById("quiz-form");
