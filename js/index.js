@@ -10,7 +10,7 @@ let wildlifeQuiz = [
 
   [
     "What is the world's largest land mammal?",
-    ["Elephant", "Giraffe","Rhino", "Hippopotamus"],
+    ["Elephant", "Giraffe", "Rhino", "Hippopotamus"],
   ],
 
   [
@@ -57,12 +57,15 @@ let i;
 let userChoice;
 let choices;
 let y;
+let correctAnswer;
 function askQuestion() {
   question = document.getElementById("question");
   i = Math.floor(Math.random() * (wildlifeQuiz.length - 1));
   question.innerHTML = wildlifeQuiz[i][0];
+  correctAnswer = wildlifeQuiz[i][1][0];
+  console.log(`Correct answer : ${correctAnswer}`); //
   // console.log(i);
-  // console.log(wildlifeQuiz[i][0]);
+  // console.log(wildlifeQuiz[i][1][0]);
 }
 askQuestion();
 
@@ -70,8 +73,6 @@ askQuestion();
 // let a2;
 // let a3;
 // let a4;
-
-
 
 function displayChoice() {
   wildlifeQuiz[i][1].sort();
@@ -98,26 +99,25 @@ function getUserInput(event) {
   let ans3 = document.getElementById("ans3");
   let ans4 = document.getElementById("ans4");
 
-  ans1.value = wildlifeQuiz[i][1][0]
+  ans1.value = wildlifeQuiz[i][1][0];
   ans2.value = wildlifeQuiz[i][1][1];
   ans3.value = wildlifeQuiz[i][1][2];
-  ans4.value = wildlifeQuiz[i][1][3]
-  
-  choices = document.getElementsByName('choice');
-            for (y = 0; y < choices.length; y++) {
-                if (choices[y].checked) {
-                  userChoice = choices[y].value
-                    document.getElementById("response").innerHTML
-                        = "Option selected: " + userChoice;
-            }
-}
-checkAnswer(userChoice)
-}
+  ans4.value = wildlifeQuiz[i][1][3];
 
-
-  function checkAnswer (someValue) {
-  console.log(someValue)
+  choices = document.getElementsByName("choice");
+  for (y = 0; y < choices.length; y++) {
+    if (choices[y].checked) {
+      userChoice = choices[y].value;
+      document.getElementById("response").innerHTML =
+        "Option selected: " + userChoice;
+    }
+  }
+  checkAnswer(userChoice);
 }
 
-let quizForm = document.getElementById('quiz-form')
-  quizForm.addEventListener('submit', getUserInput )
+function checkAnswer(someValue) {
+  console.log(someValue);
+}
+
+let quizForm = document.getElementById("quiz-form");
+quizForm.addEventListener("submit", getUserInput);
