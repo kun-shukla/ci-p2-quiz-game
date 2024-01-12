@@ -74,8 +74,29 @@ askQuestion();
 // let a3;
 // let a4;
 
+//this function src is from https://bost.ocks.org/mike/shuffle/
+function shuffle(array) {
+  var m = array.length,
+    t,
+    i;
+
+  // While there remain elements to shuffle…
+  while (m) {
+    // Pick a remaining element…
+    i = Math.floor(Math.random() * m--);
+
+    // And swap it with the current element.
+    t = array[m];
+    array[m] = array[i];
+    array[i] = t;
+  }
+
+  return array;
+}
+
 function displayChoice() {
-  wildlifeQuiz[i][1].sort();
+  // wildlifeQuiz[i][1].sort();
+  shuffle(wildlifeQuiz[i][1]);
   console.log(wildlifeQuiz[i][1]);
   //   console.log(wildlifeQuiz);
 
