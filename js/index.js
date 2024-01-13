@@ -44,11 +44,11 @@ let wildlifeQuiz = [
   [
     "What is the only marsupial found in North America?",
     ["Opossum", "Kangaroo", "Wallaby", "Koala"],
-  ]
+  ],
 ];
 let counter = 1;
-let qCount = document.getElementById('q-counter')
-qCount.innerHTML = counter + " of 10"
+let qCount = document.getElementById("q-counter");
+qCount.innerHTML = counter + " of 10";
 let question;
 let i;
 let userChoice;
@@ -57,29 +57,23 @@ let y;
 let correctAnswer;
 let score = 0;
 let response;
-let quizForm
+let quizForm;
 function askQuestion() {
   if (wildlifeQuiz.length === 0) {
     alert("Game Over! Your final score is : " + score);
   } else {
     question = document.getElementById("question");
-    i = Math.floor(Math.random() * (wildlifeQuiz.length))
-    console.log(i) // for debugging 
+    i = Math.floor(Math.random() * wildlifeQuiz.length);
+    // console.log(i); // for debugging
     question.innerHTML = wildlifeQuiz[i][0];
     console.log(question.innerHTML);
     correctAnswer = wildlifeQuiz[i][1][0];
-    console.log(`Correct answer : ${correctAnswer}`); //
+    console.log(`Correct option is : ${correctAnswer}`); //
 
     displayChoice();
   }
 }
 askQuestion();
-;
-
-
-
-
-
 //this function src is from https://bost.ocks.org/mike/shuffle/
 function shuffle(array) {
   var m = array.length,
@@ -115,14 +109,12 @@ function displayChoice() {
 }
 
 function getUserInput(event) {
-  
   event.preventDefault();
   if (counter === 10) {
-    document.getElementById('q-heading').innerHTML="Quiz complete!"
-  }
-  else
-  {counter++
-  qCount.textContent = counter + " of 10"
+    document.getElementById("q-heading").innerHTML = "Quiz complete!";
+  } else {
+    counter++;
+    qCount.textContent = counter + " of 10";
   }
 
   let ans1 = document.getElementById("ans1");
@@ -144,25 +136,80 @@ function getUserInput(event) {
   }
   checkAnswer(userChoice);
 }
+let tickIcon = document.createElement("span");
+tickIcon.innerHTML = `<i class="fa-solid fa-circle-check"></i>`;
 
+let xIcon = document.createElement("span");
+xIcon.innerHTML = `<i class="fa-solid fa-circle-xmark"></i>`;
+let labelElement;
+// let chosenAnswer;
 function checkAnswer(selectedOption) {
   console.log("User answer: " + selectedOption);
   if (selectedOption === correctAnswer) {
-    alert("correct answer!!!");
+    for (x = 0; x < choices.length; x++) {
+      if (choices[x].checked) {
+        // chosenAnswer = choices[x];
+        let radioId = choices[x].id;
+        let theLabel = document.querySelector('label[for="' + radioId + '"]');
+        theLabel.appendChild(tickIcon);
+        console.log(theLabel.innerHTML);
+      }
+    }
+    console.log("User inputted correct answer");
     keepScore();
-  } else {
-    alert("Oops! That's not Correct!");
   }
-  removeQuestion();
-  console.log(wildlifeQuiz);
-  quizForm.reset()
-  askQuestion();
+  if (selectedOption !== correctAnswer) {
+    for (x = 0; x < choices.length; x++) {
+      if (choices[x].checked) {
+        // chosenAnswer = choices[x];
+        let radioId = choices[x].id;
+        let theLabel = document.querySelector('label[for="' + radioId + '"]');
+        theLabel.appendChild(xIcon);
+        console.log(theLabel.innerHTML);
+      }
+    }
+  }
 }
+// console.log(tickIcon.innerHTML);
+// let xIcon = document.createElement("span");
+// xIcon.innerHTML =
+//   tickIcon.innerHTML = `<i class="fa-solid fa-circle-xmark"></i>`;
+// let labelElement;
+// let chosenAnswer;
+// function checkAnswer(selectedOption) {
+//   console.log("User answer: " + selectedOption);
+//   for (x = 0; x < choices.length; x++) {
+//     if (choices[x].checked && selectedOption === correctAnswer) {
+//       let radioId = choices[x].id;
+//       let theLabel = document.querySelector('label[for="' + radioId + '"]');
+//       theLabel.appendChild(tickIcon);
+//       console.log(theLabel.innerHTML);
+//       console.log("User inputted correct answer");
+//       keepScore();
+//     } else if (choices[x].checked) {
+//       let radioId = choices[x].id;
+//       let theLabel = document.querySelector('label[for="' + radioId + '"]');
+//       theLabel.appendChild(xIcon);
+//       console.log(theLabel.innerHTML);
+//     }
 
+//     // console.log("User inputted incorrect answer");
+//   }
+// }
 function keepScore() {
   score++;
   response.innerHTML = `Your current score is : <strong>${score}</strong>`;
 }
+
+function getNextQ() {
+  removeQuestion();
+  console.log(wildlifeQuiz);
+  quizForm.reset();
+  askQuestion();
+}
+
+nextQButton = document.getElementById("next-q");
+nextQButton.addEventListener("click", getNextQ);
 
 quizForm = document.getElementById("quiz-form");
 quizForm.addEventListener("submit", getUserInput);
