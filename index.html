@@ -11,7 +11,7 @@
 <body>
     <h1>Play the Quiz!</h1>
     <form id="quiz-form" action="">
-        <h2>Question:</h2>
+        <h2 id="q-heading">Question: <span id="q-counter"></span></h2>
         <p> <strong><span id="question"></span></strong></p>
         <p>
             <input id="ans1" type="radio" name="choice">
@@ -30,11 +30,6 @@
             <input id="ans4" type="radio" name="choice">
             <label id="a4" for="ans4"></label>
         </p>
-        <!-- <p>Option 1: <span id="a1"></span></p>
-        <p>Option 2: <span id="a2"></span></p>
-        <p>Option 3: <span id="a3"></span></p>
-        <p>Option 4: <span id="a4"></span></p> -->
-        <p>
             <input type="submit" value="Submit Answer">
         </p>
     </form>

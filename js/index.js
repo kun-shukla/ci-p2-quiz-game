@@ -46,7 +46,9 @@ let wildlifeQuiz = [
     ["Opossum", "Kangaroo", "Wallaby", "Koala"],
   ]
 ];
-
+let counter = 1;
+let qCount = document.getElementById('q-counter')
+qCount.innerHTML = counter + " of 10"
 let question;
 let i;
 let userChoice;
@@ -71,6 +73,11 @@ function askQuestion() {
   }
 }
 askQuestion();
+;
+
+
+
+
 
 //this function src is from https://bost.ocks.org/mike/shuffle/
 function shuffle(array) {
@@ -108,6 +115,14 @@ function displayChoice() {
 
 function getUserInput(event) {
   event.preventDefault();
+  if (counter === 10) {
+    document.getElementById('q-heading').innerHTML="Quiz complete!"
+  }
+  else
+  {counter++
+  qCount.textContent = counter + " of 10"
+  }
+
   let ans1 = document.getElementById("ans1");
   let ans2 = document.getElementById("ans2");
   let ans3 = document.getElementById("ans3");
@@ -129,10 +144,10 @@ function getUserInput(event) {
 }
 
 function checkAnswer(selectedOption) {
-  console.log(selectedOption);
+  console.log("User answer: " + selectedOption);
   if (selectedOption === correctAnswer) {
     alert("correct answer!!!");
-    keepScore(userChoice);
+    keepScore();
   } else {
     alert("Oops! That's not Correct!");
   }
