@@ -57,6 +57,7 @@ let y;
 let correctAnswer;
 let score = 0;
 let response;
+let quizForm
 function askQuestion() {
   if (wildlifeQuiz.length === 0) {
     alert("Game Over! Your final score is : " + score);
@@ -114,6 +115,7 @@ function displayChoice() {
 }
 
 function getUserInput(event) {
+  
   event.preventDefault();
   if (counter === 10) {
     document.getElementById('q-heading').innerHTML="Quiz complete!"
@@ -153,6 +155,7 @@ function checkAnswer(selectedOption) {
   }
   removeQuestion();
   console.log(wildlifeQuiz);
+  quizForm.reset()
   askQuestion();
 }
 
@@ -161,7 +164,7 @@ function keepScore() {
   response.innerHTML = `Your current score is : <strong>${score}</strong>`;
 }
 
-let quizForm = document.getElementById("quiz-form");
+quizForm = document.getElementById("quiz-form");
 quizForm.addEventListener("submit", getUserInput);
 
 function removeQuestion() {
