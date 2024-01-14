@@ -112,10 +112,11 @@ function getUserInput(event) {
   event.preventDefault();
   if (counter === 10) {
     document.getElementById("q-heading").innerHTML = "Quiz complete!";
-  } else {
-    counter++;
-    qCount.textContent = counter + " of 10";
   }
+  // else {
+  //   counter++;
+  //   qCount.textContent = counter + " of 10";
+  // }
 
   let ans1 = document.getElementById("ans1");
   let ans2 = document.getElementById("ans2");
@@ -201,11 +202,17 @@ function keepScore() {
   response.innerHTML = `Your current score is : <strong>${score}</strong>`;
 }
 
+function qCounter() {
+  counter++;
+  qCount.textContent = counter + " of 10";
+}
+
 function getNextQ() {
   removeQuestion();
   console.log(wildlifeQuiz);
   quizForm.reset();
   askQuestion();
+  qCounter();
 }
 
 nextQButton = document.getElementById("next-q");
