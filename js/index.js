@@ -58,6 +58,8 @@ let correctAnswer;
 let score = 0;
 let response;
 let quizForm;
+let submitButton = document.getElementById("submit-btn");
+
 function askQuestion() {
   if (wildlifeQuiz.length === 0) {
     alert("Game Over! Your final score is : " + score);
@@ -217,10 +219,33 @@ function getNextQ() {
 
 nextQButton = document.getElementById("next-q");
 nextQButton.addEventListener("click", getNextQ);
+nextQButton.addEventListener("click", removeNextQBtn);
 
 quizForm = document.getElementById("quiz-form");
 quizForm.addEventListener("submit", getUserInput);
-
+quizForm.addEventListener("submit", removeSubmitBtn);
 function removeQuestion() {
   wildlifeQuiz.splice(i, 1);
+}
+
+function removeSubmitBtn() {
+  submitButton.style.display = "none";
+  nextQButton.style.display = "inline-block";
+  console.log(
+    "submit button: ",
+    submitButton.style.display,
+    "next button: ",
+    nextQButton.style.display
+  );
+}
+
+function removeNextQBtn() {
+  nextQButton.style.display = "none";
+  submitButton.style.display = "inline-block";
+  console.log(
+    "submit button: ",
+    submitButton.style.display,
+    "next button: ",
+    nextQButton.style.display
+  );
 }
