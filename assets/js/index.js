@@ -49,23 +49,26 @@ let wildlifeQuiz = [
   ],
 ];
 
+// Setup global variables
+let question, i, userChoice, choices, y, correctAnswer, quizForm, username;
 let counter = 1;
+let score = 0;
+
+// Element to link with HTML ID
 let qCount = document.getElementById("q-counter");
 qCount.innerHTML = counter + " of 10";
-let question;
-let i;
-let userChoice;
-let choices;
-let y;
-let correctAnswer;
-let score = 0;
 let response = document.getElementById("response");
-let quizForm;
 let submitButton = document.getElementById("submit-btn");
 let nextQButton = document.getElementById("next-q");
 let playAgainBtn = document.getElementById("play-again");
 let quitGameBtn = document.getElementById("quit-game");
-let username;
+//Fontawesome icons for depicting correct/incorrect answers within span tag.
+let tickIcon = document.createElement("span")
+tickIcon.innerHTML = `<i class="fa-solid fa-circle-check" style="color: #63E6BE;"></i>`;
+let xIcon = document.createElement("span")
+xIcon.innerHTML = `<i class="fa-solid fa-circle-xmark" style="color: #e32400;"></i>`;
+
+//Set up of Functions
 
 /**
  * Game starts here with a 'Enter name' user prompt
@@ -73,7 +76,6 @@ let username;
 function gameStart() {
   username = prompt("Please enter your name : ");
 }
-gameStart();
 
 /**
  * Displays a randomised question with corresponding choices. 
@@ -88,7 +90,6 @@ function askQuestion() {
 
   displayChoice(); // callback function for displaying choices.
 }
-askQuestion(); // function call for displaying randomised q / choices
 
 //this function src is from https://bost.ocks.org/mike/shuffle/
 function shuffle(array) {
@@ -158,12 +159,7 @@ function getUserInput(event) {
   checkAnswer(userChoice); // call back function to capture 'userChoice' variable as a parameter for the 'checkAnswer' function
 }
 
-//Fontawesome icons for depicting correct/incorrect answers within span tag.
-let tickIcon = document.createElement("span");
-tickIcon.innerHTML = `<i class="fa-solid fa-circle-check" style="color: #63E6BE;"></i>`;
 
-let xIcon = document.createElement("span");
-xIcon.innerHTML = `<i class="fa-solid fa-circle-xmark" style="color: #e32400;"></i>`;
 
 /**
  * Checks selected option against the correct answer and indicates correct/incorrect response
@@ -192,7 +188,8 @@ function checkAnswer(selectedOption) {
     keepScore(); // score is added if chosen option is correct
   }
   // Similar to above 'if' block but only runs if the selected option is incorrect
-  if (selectedOption !== correctAnswer) {
+  //if (selectedOption !== correctAnswer) {
+    else{
     for (x = 0; x < choices.length; x++) {
       if (choices[x].checked) {
         let radioId = choices[x].id;
@@ -202,6 +199,7 @@ function checkAnswer(selectedOption) {
       }
     }
   }
+  
   //Applies to both if conditons above (within the checkanswer function) - displays the final score after the last question has been answered and checked for correct/incorrect response.
   if (wildlifeQuiz.length === 1) {
     response.innerHTML =
@@ -307,3 +305,7 @@ quitGameBtn.addEventListener("click", quitGame);
 function quitGame() {
   location.reload(true); // page hard refresh
 }
+
+//The start of the game
+gameStart();
+askQuestion(); // function call for displaying randomised q / choices
