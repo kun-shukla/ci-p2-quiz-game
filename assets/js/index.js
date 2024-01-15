@@ -50,22 +50,26 @@ let wildlifeQuiz = [
 ];
 
 // Setup global variables
-let question, i, userChoice, choices, y, correctAnswer, quizForm, username;
+let question, i, userChoice, choices, y, correctAnswer, username;
 let counter = 1;
 let score = 0;
 
 // Element to link with HTML ID
 let qCount = document.getElementById("q-counter");
-qCount.innerHTML = counter + " of 10";
 let response = document.getElementById("response");
 let submitButton = document.getElementById("submit-btn");
 let nextQButton = document.getElementById("next-q");
 let playAgainBtn = document.getElementById("play-again");
 let quitGameBtn = document.getElementById("quit-game");
+let quizForm = document.getElementById("quiz-form"); //Triggers 'quit game' listener
+
 //Fontawesome icons for depicting correct/incorrect answers within span tag.
 let tickIcon = document.createElement("span")
-tickIcon.innerHTML = `<i class="fa-solid fa-circle-check" style="color: #63E6BE;"></i>`;
 let xIcon = document.createElement("span")
+
+// Assign innerHTML content to element
+qCount.innerHTML = counter + " of 10";
+tickIcon.innerHTML = `<i class="fa-solid fa-circle-check" style="color: #63E6BE;"></i>`;
 xIcon.innerHTML = `<i class="fa-solid fa-circle-xmark" style="color: #e32400;"></i>`;
 
 //Set up of Functions
@@ -75,6 +79,7 @@ xIcon.innerHTML = `<i class="fa-solid fa-circle-xmark" style="color: #e32400;"><
  */
 function gameStart() {
   username = prompt("Please enter your name : ");
+  askQuestion(); // function call for displaying randomised questions / choices
 }
 
 /**
@@ -178,7 +183,7 @@ function checkAnswer(selectedOption) {
   if (selectedOption === correctAnswer) {
     for (x = 0; x < choices.length; x++) {
       if (choices[x].checked) { // nested if condition for finding the 'checked' radio button
-        let radioId = choices[x].id; // the selcted radio button's id is used to identify the corresponding label tag (line 185 below)
+        let radioId = choices[x].id; // the selected radio button's id is used to identify the corresponding label tag (line 185 below)
         let theLabel = document.querySelector('label[for="' + radioId + '"]'); // 
         theLabel.appendChild(tickIcon); // 'tick' mark displays against the respective label tag
         console.log(theLabel.innerHTML);
@@ -199,8 +204,8 @@ function checkAnswer(selectedOption) {
       }
     }
   }
-  
-  //Applies to both if conditons above (within the checkanswer function) - displays the final score after the last question has been answered and checked for correct/incorrect response.
+
+  //Applies to both if conditions above (within the checkAnswer function) - displays the final score after the last question has been answered and checked for correct/incorrect response.
   if (wildlifeQuiz.length === 1) {
     response.innerHTML =
       "Hey " +
@@ -221,7 +226,7 @@ function keepScore() {
 }
 
 /**
- * counter for the 'number of qs left' heading on top of page
+ * counter for the 'number of questions left' heading on top of page
  */
 function qCounter() {
   counter++;
@@ -239,16 +244,6 @@ function getNextQ() {
   qCounter(); // increments quiz counter heading by 1
 }
 
-nextQButton.addEventListener("click", getNextQ); //Triggers 'next question' listener
-
-nextQButton.addEventListener("click", removeNextQBtn); //Triggers 'remove next q button' listener after user clicks on 'next question' button
-
-quizForm = document.getElementById("quiz-form"); //Triggers 'quit game' listener
-
-quizForm.addEventListener("submit", getUserInput); // Triggers the 'user input' listener when user clicks on 'submit answer' button
-
-quizForm.addEventListener("submit", removeSubmitBtn); //Triggers 'remove submit button' listener after user clicks on the 'submit answer' button
-
 /**
  * Removes the answered question from the array so that the same questions does not reappear during the current game. 
  */
@@ -265,12 +260,6 @@ function removeSubmitBtn() {
   } else {
     submitButton.style.visibility = "hidden";
     nextQButton.style.visibility = "visible";
-    console.log(
-      "submit button: ",
-      submitButton.style.display,
-      "next button: ",
-      nextQButton.style.display
-    );
   }
 }
 
@@ -280,24 +269,12 @@ function removeSubmitBtn() {
 function removeNextQBtn() {
   nextQButton.style.visibility = "hidden";
   submitButton.style.visibility = "visible";
-  console.log(
-    "submit button: ",
-    submitButton.style.display,
-    "next button: ",
-    nextQButton.style.display
-  );
-}
-
-//Triggers 'play again' listener
-playAgainBtn.addEventListener("click", playAgain);
+ }
 
 // option for playing game again after quiz is completed by the user
 function playAgain() {
   location.reload(true);
 }
-
-//Triggers 'quit game' listener
-quitGameBtn.addEventListener("click", quitGame);
 
 /**
  * option for qutting the game (depicted as a FontAwesome 'refresh' icon)
@@ -306,6 +283,18 @@ function quitGame() {
   location.reload(true); // page hard refresh
 }
 
+//List of event listener triggers
+nextQButton.addEventListener("click", getNextQ); //Triggers 'next question' listener
+
+nextQButton.addEventListener("click", removeNextQBtn); //Triggers 'remove next q button' listener after user clicks on 'next question' button
+
+quizForm.addEventListener("submit", getUserInput); // Triggers the 'user input' listener when user clicks on 'submit answer' button
+
+quizForm.addEventListener("submit", removeSubmitBtn); //Triggers 'remove submit button' listener after user clicks on the 'submit answer' button
+
+playAgainBtn.addEventListener("click", playAgain);//Triggers 'play again' listener
+
+quitGameBtn.addEventListener("click", quitGame);//Triggers 'quit game' listener
+
 //The start of the game
-gameStart();
-askQuestion(); // function call for displaying randomised q / choices
+gameStart(); 
