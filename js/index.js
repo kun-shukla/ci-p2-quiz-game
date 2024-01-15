@@ -61,6 +61,11 @@ let quizForm;
 let submitButton = document.getElementById("submit-btn");
 let playAgainBtn = document.getElementById("play-again");
 let quitGameBtn = document.getElementById("quit-game");
+let username;
+function gameStart() {
+  username = prompt("Please enter your name : ");
+}
+gameStart();
 
 function askQuestion() {
   question = document.getElementById("question");
@@ -167,7 +172,12 @@ function checkAnswer(selectedOption) {
     }
   }
   if (wildlifeQuiz.length === 1) {
-    response.innerHTML = "GAME OVER! Your final score is : " + score;
+    response.innerHTML =
+      "Hey " +
+      username +
+      "! You Have Completed The Quiz! Final Score  : " +
+      score +
+      " !";
     nextQButton.style.display = "none";
     document.getElementById("q-heading").innerHTML = "Quiz complete!";
   }
