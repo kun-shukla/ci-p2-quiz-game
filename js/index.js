@@ -218,8 +218,8 @@ function qCounter() {
   qCount.textContent = counter + " of 10";
 }
 
-function getNextQ(event) {
-  event.preventDefault();
+function getNextQ() {
+  // event.preventDefault();
   removeQuestion();
   console.log(wildlifeQuiz);
   quizForm.reset();
