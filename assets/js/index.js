@@ -207,12 +207,7 @@ function checkAnswer(selectedOption) {
 
   //Applies to both if conditions above (within the checkAnswer function) - displays the final score after the last question has been answered and checked for correct/incorrect response.
   if (wildlifeQuiz.length === 1) {
-    response.innerHTML =
-      "Hey " +
-      username +
-      "! You Have Completed The Quiz! Final Score  : " +
-      score +
-      " !";
+    response.innerHTML = `Hey, ${username}! You Have Completed The Quiz!<strong> Final Score : ${score}</strong>`
     document.getElementById("q-heading").innerHTML = "Quiz complete!"; //counter heading text changes to indicate end of game.
   }
 }
