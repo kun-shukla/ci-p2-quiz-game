@@ -1,3 +1,4 @@
+
 let wildlifeQuiz = [
   [
     "What is the largest big cat in the world?",
@@ -62,6 +63,7 @@ let submitButton = document.getElementById("submit-btn");
 let playAgainBtn = document.getElementById("play-again");
 let quitGameBtn = document.getElementById("quit-game");
 let username;
+
 function gameStart() {
   username = prompt("Please enter your name : ");
 }
@@ -70,7 +72,6 @@ gameStart();
 function askQuestion() {
   question = document.getElementById("question");
   i = Math.floor(Math.random() * wildlifeQuiz.length);
-  // console.log(i); // for debugging
   question.innerHTML = wildlifeQuiz[i][0];
   console.log(question.innerHTML);
   correctAnswer = wildlifeQuiz[i][1][0];
@@ -139,18 +140,18 @@ tickIcon.innerHTML = `<i class="fa-solid fa-circle-check" style="color: #63E6BE;
 
 let xIcon = document.createElement("span");
 xIcon.innerHTML = `<i class="fa-solid fa-circle-xmark" style="color: #e32400;"></i>`;
-let labelElement;
-// let chosenAnswer;
+
 function checkAnswer(selectedOption) {
   console.log("User answer: " + selectedOption);
   if (wildlifeQuiz.length === 1) {
     nextQButton.style.visibility = "hidden";
     playAgainBtn.style.visibility = "visible";
+    submitButton.style.visibility = "hidden";
+    quitGameBtn.style.visibility = "hidden"
   }
   if (selectedOption === correctAnswer) {
     for (x = 0; x < choices.length; x++) {
       if (choices[x].checked) {
-        // chosenAnswer = choices[x];
         let radioId = choices[x].id;
         let theLabel = document.querySelector('label[for="' + radioId + '"]');
         theLabel.appendChild(tickIcon);
@@ -163,7 +164,6 @@ function checkAnswer(selectedOption) {
   if (selectedOption !== correctAnswer) {
     for (x = 0; x < choices.length; x++) {
       if (choices[x].checked) {
-        // chosenAnswer = choices[x];
         let radioId = choices[x].id;
         let theLabel = document.querySelector('label[for="' + radioId + '"]');
         theLabel.appendChild(xIcon);
@@ -193,7 +193,6 @@ function qCounter() {
 }
 
 function getNextQ() {
-  // event.preventDefault();
   removeQuestion();
   console.log(wildlifeQuiz);
   quizForm.reset();
@@ -214,8 +213,7 @@ function removeQuestion() {
 
 function removeSubmitBtn() {
   if (wildlifeQuiz.length === 1) {
-    nextQButton.style.visibility = "hidden";
-    submitButton.style.visibility = "hidden";
+    
   } else {
     submitButton.style.visibility = "hidden";
     nextQButton.style.visibility = "visible";
