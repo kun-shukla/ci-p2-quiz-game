@@ -182,32 +182,6 @@ function checkAnswer(selectedOption) {
     document.getElementById("q-heading").innerHTML = "Quiz complete!";
   }
 }
-// console.log(tickIcon.innerHTML);
-// let xIcon = document.createElement("span");
-// xIcon.innerHTML =
-//   tickIcon.innerHTML = `<i class="fa-solid fa-circle-xmark"></i>`;
-// let labelElement;
-// let chosenAnswer;
-// function checkAnswer(selectedOption) {
-//   console.log("User answer: " + selectedOption);
-//   for (x = 0; x < choices.length; x++) {
-//     if (choices[x].checked && selectedOption === correctAnswer) {
-//       let radioId = choices[x].id;
-//       let theLabel = document.querySelector('label[for="' + radioId + '"]');
-//       theLabel.appendChild(tickIcon);
-//       console.log(theLabel.innerHTML);
-//       console.log("User inputted correct answer");
-//       keepScore();
-//     } else if (choices[x].checked) {
-//       let radioId = choices[x].id;
-//       let theLabel = document.querySelector('label[for="' + radioId + '"]');
-//       theLabel.appendChild(xIcon);
-//       console.log(theLabel.innerHTML);
-//     }
-
-//     // console.log("User inputted incorrect answer");
-//   }
-// }
 function keepScore() {
   score++;
   response.innerHTML = `Your current score is : <strong>${score}</strong>`;
