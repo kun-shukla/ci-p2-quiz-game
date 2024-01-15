@@ -130,10 +130,10 @@ function getUserInput(event) {
   checkAnswer(userChoice);
 }
 let tickIcon = document.createElement("span");
-tickIcon.innerHTML = `<i class="fa-solid fa-circle-check"></i>`;
+tickIcon.innerHTML = `<i class="fa-solid fa-circle-check" style="color: #63E6BE;"></i>`;
 
 let xIcon = document.createElement("span");
-xIcon.innerHTML = `<i class="fa-solid fa-circle-xmark"></i>`;
+xIcon.innerHTML = `<i class="fa-solid fa-circle-xmark" style="color: #e32400;"></i>`;
 let labelElement;
 // let chosenAnswer;
 function checkAnswer(selectedOption) {
