@@ -144,8 +144,8 @@ let labelElement;
 function checkAnswer(selectedOption) {
   console.log("User answer: " + selectedOption);
   if (wildlifeQuiz.length === 1) {
-    nextQButton.style.display = "none";
-    playAgainBtn.style.display = "inline-block";
+    nextQButton.style.visibility = "hidden";
+    playAgainBtn.style.visibility = "visible";
   }
   if (selectedOption === correctAnswer) {
     for (x = 0; x < choices.length; x++) {
@@ -178,7 +178,7 @@ function checkAnswer(selectedOption) {
       "! You Have Completed The Quiz! Final Score  : " +
       score +
       " !";
-    nextQButton.style.display = "none";
+    nextQButton.style.visibility = "hidden";
     document.getElementById("q-heading").innerHTML = "Quiz complete!";
   }
 }
@@ -240,11 +240,11 @@ function removeQuestion() {
 
 function removeSubmitBtn() {
   if (wildlifeQuiz.length === 1) {
-    nextQButton.style.display = "none";
-    submitButton.style.display = "none";
+    nextQButton.style.visibility = "hidden";
+    submitButton.style.visibility = "hidden";
   } else {
-    submitButton.style.display = "none";
-    nextQButton.style.display = "inline-block";
+    submitButton.style.visibility = "hidden";
+    nextQButton.style.visibility = "visible";
     console.log(
       "submit button: ",
       submitButton.style.display,
@@ -255,8 +255,8 @@ function removeSubmitBtn() {
 }
 
 function removeNextQBtn() {
-  nextQButton.style.display = "none";
-  submitButton.style.display = "inline-block";
+  nextQButton.style.visibility = "hidden";
+  submitButton.style.visibility = "visible";
   console.log(
     "submit button: ",
     submitButton.style.display,

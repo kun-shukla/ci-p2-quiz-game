@@ -31,20 +31,24 @@
             <input id="ans4" type="radio" name="choice">
             <label id="a4" for="ans4"></label>
         </p>
-        <p id="btn-list">
-            <input id="submit-btn" type="submit" value="Submit Answer">
-        </p>
+        <input id="submit-btn" type="submit" value="Submit Answer">
+
+        <div id="response">
+            Your current score is : <strong>0</strong>
+            <!-- Response from quiz form will go here -->
+        </div>
     </form>
     <button id="next-q">Next Question</button>
-    <button id="play-again">Play Again!</button>
-    <button id="quit-game">Quit Game</button>
-
+    <p>
+        <button id="play-again">Play Again!</button>
+    </p>
+    <p>
+        <button id="quit-game"><span><i class="fa fa-refresh" aria-hidden="true"></i></span></button>
+    </p>
     <script src="js/index.js"></script>
-    <div id="response">
-        Your current score is : <strong>0</strong>
-        <!-- Response from quiz form will go here -->
+    <p>
 
-    </div>
+    </p>
 </body>
 
 </html>

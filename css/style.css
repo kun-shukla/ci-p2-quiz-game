@@ -1,3 +1,11 @@
 #next-q, #play-again{
-    display:none;
+    visibility:hidden;
+}
+
+#response {
+    margin-top:20px
+}
+
+#quit-game {
+    margin-bottom: 50px;
 }
