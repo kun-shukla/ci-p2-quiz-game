@@ -59,21 +59,30 @@ let score = 0;
 let response;
 let quizForm;
 let submitButton = document.getElementById("submit-btn");
+let playAgainBtn = document.getElementById("play-again");
+// let playAgainBtn = document.createElement("button");
+// playAgainBtn.value = "Play Again";
+// let btnList = document.getElementbyId("btn-list");
+// btnList.appendChild(playAgainBtn);
+// console.log(btnList);
 
 function askQuestion() {
-  if (wildlifeQuiz.length === 0) {
-    alert("Game Over! Your final score is : " + score);
-  } else {
-    question = document.getElementById("question");
-    i = Math.floor(Math.random() * wildlifeQuiz.length);
-    // console.log(i); // for debugging
-    question.innerHTML = wildlifeQuiz[i][0];
-    console.log(question.innerHTML);
-    correctAnswer = wildlifeQuiz[i][1][0];
-    console.log(`Correct option is : ${correctAnswer}`); //
+  // if (wildlifeQuiz.length < 1) {
+  //   alert("Game Over! Your final score is : " + score);
+  //   nextQButton.style.display = "none";
+  //   document.getElementById("q-heading").innerHTML = "Quiz complete!";
+  // }
+  // else {
+  question = document.getElementById("question");
+  i = Math.floor(Math.random() * wildlifeQuiz.length);
+  // console.log(i); // for debugging
+  question.innerHTML = wildlifeQuiz[i][0];
+  console.log(question.innerHTML);
+  correctAnswer = wildlifeQuiz[i][1][0];
+  console.log(`Correct option is : ${correctAnswer}`); //
 
-    displayChoice();
-  }
+  displayChoice();
+  // }
 }
 askQuestion();
 //this function src is from https://bost.ocks.org/mike/shuffle/
@@ -112,14 +121,19 @@ function displayChoice() {
 
 function getUserInput(event) {
   event.preventDefault();
-  if (counter === 10) {
-    document.getElementById("q-heading").innerHTML = "Quiz complete!";
-  }
-  // else {
-  //   counter++;
-  //   qCount.textContent = counter + " of 10";
+
+  playAgainBtn.addEventListener("click", playAgain);
+
+  // function playAgain() {
+  //   setTimeout(function () {
+  //     location.reload(true);
+  //   }, 1000); // Wait for 1 second (adjust the delay as needed)
+  //   // event.preventDefault;
   // }
 
+  function playAgain() {
+    location.reload(true);
+  }
   let ans1 = document.getElementById("ans1");
   let ans2 = document.getElementById("ans2");
   let ans3 = document.getElementById("ans3");
@@ -148,6 +162,10 @@ let labelElement;
 // let chosenAnswer;
 function checkAnswer(selectedOption) {
   console.log("User answer: " + selectedOption);
+  if (wildlifeQuiz.length === 1) {
+    nextQButton.style.display = "none";
+    playAgainBtn.style.display = "inline-block";
+  }
   if (selectedOption === correctAnswer) {
     for (x = 0; x < choices.length; x++) {
       if (choices[x].checked) {
@@ -171,6 +189,11 @@ function checkAnswer(selectedOption) {
         console.log(theLabel.innerHTML);
       }
     }
+  }
+  if (wildlifeQuiz.length === 1) {
+    response.innerHTML = "GAME OVER! Your final score is : " + score;
+    nextQButton.style.display = "none";
+    document.getElementById("q-heading").innerHTML = "Quiz complete!";
   }
 }
 // console.log(tickIcon.innerHTML);
@@ -230,14 +253,19 @@ function removeQuestion() {
 }
 
 function removeSubmitBtn() {
-  submitButton.style.display = "none";
-  nextQButton.style.display = "inline-block";
-  console.log(
-    "submit button: ",
-    submitButton.style.display,
-    "next button: ",
-    nextQButton.style.display
-  );
+  if (wildlifeQuiz.length === 1) {
+    nextQButton.style.display = "none";
+    submitButton.style.display = "none";
+  } else {
+    submitButton.style.display = "none";
+    nextQButton.style.display = "inline-block";
+    console.log(
+      "submit button: ",
+      submitButton.style.display,
+      "next button: ",
+      nextQButton.style.display
+    );
+  }
 }
 
 function removeNextQBtn() {
