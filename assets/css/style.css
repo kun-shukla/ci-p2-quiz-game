@@ -1,3 +1,4 @@
+/* Sets 'next question' and 'play again' buttons visibilty to hidden by default */
 #next-q, #play-again{
     visibility:hidden;
 }
@@ -10,6 +11,7 @@
     margin-bottom: 50px;
 }
 
+/* increases size of FontAwesome 'refresh' icon */
 #refresh {
     font-size: 2em;
 }

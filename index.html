@@ -4,16 +4,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/style.css">
+    <!-- Link to css stylesheet -->
+    <link rel="stylesheet" href="assets/css/style.css">
     <title>Quiz Time!</title>
+    <!-- Imported FontAwesome icons -->
     <script src="https://kit.fontawesome.com/13513ab6ba.js" crossorigin="anonymous"></script>
 </head>
 
 <body>
     <h1>Play the Quiz!</h1>
     <form id="quiz-form" action="">
+        <!-- Question counter is displayed here -->
         <h2 id="q-heading">Question: <span id="q-counter"></span></h2>
+        <!-- Question is displayed here -->
         <p> <strong><span id="question"></span></strong></p>
+        <!-- radio buttons with label tags for displaying user choices -->
         <p>
             <input id="ans1" type="radio" name="choice" required>
             <label id="a1" for="ans1"></label>
@@ -33,22 +38,23 @@
         </p>
         <input id="submit-btn" type="submit" value="Submit Answer">
 
+         <!-- Displays user score -->
         <div id="response">
             Your current score is : <strong>0</strong>
-            <!-- Response from quiz form will go here -->
         </div>
     </form>
-    <button id="next-q">Next Question</button>
+    <!-- button for displaying next question -->
+    <button id="next-q">Next Question</button> 
     <p>
+        <!-- button for 'play again' option -->
         <button id="play-again">Play Again!</button>
     </p>
     <p>
+        <!-- button for 'quit game' option using FontAwesome 'refresh' icon -->
         <button id="quit-game"><span id = "refresh"><i class="fa fa-refresh" aria-hidden="true"></i></span></button>
     </p>
-    <script src="js/index.js"></script>
-    <p>
-
-    </p>
+    <!-- Script tag for linking JS file -->
+    <script src="assets/js/index.js"></script>
 </body>
 
 </html>
