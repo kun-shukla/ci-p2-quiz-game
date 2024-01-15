@@ -14,39 +14,46 @@
 </head>
 
 <body>
+    <div id = "container-div">
     <h1>Play the Quiz!</h1>
     <form id="quiz-form" action="">
         <!-- Question counter is displayed here -->
         <h2 id="q-heading">Question: <span id="q-counter"></span></h2>
         <!-- Question is displayed here -->
-        <p> <strong><span id="question"></span></strong></p>
+        <p id = "q-container"> <strong><span id="question"></span></strong></p>
         <!-- radio buttons with label tags for displaying user choices -->
-        <p>
+        <div id="radio-btns">
+        <p class="option">
             <input id="ans1" type="radio" name="choice" required>
             <label id="a1" for="ans1"></label>
 
         </p>
-        <p>
+        <p class="option">
             <input id="ans2" type="radio" name="choice">
             <label id="a2" for="ans2"></label>
         </p>
-        <p>
+        <p class="option">
             <input id="ans3" type="radio" name="choice">
             <label id="a3" for="ans3"></label>
         </p>
-        <p>
+        <p class="option">
             <input id="ans4" type="radio" name="choice">
             <label id="a4" for="ans4"></label>
         </p>
-        <input id="submit-btn" type="submit" value="Submit Answer">
+        <!-- Display error message if no option is selected -->
+    <div id="error-message" class="error-message"></div>
+    </div>
+        <button id="submit-btn" type="submit"> Submit Answer</button>
 
          <!-- Displays user score -->
         <div id="response">
             Your current score is : <strong>0</strong>
         </div>
     </form>
+    <p>
     <!-- button for displaying next question -->
     <button id="next-q">Next Question</button> 
+</p>
     <p>
         <!-- button for 'play again' option -->
         <button id="play-again">Play Again!</button>
@@ -57,6 +64,7 @@
     </p>
     <!-- Script tag for linking JS file -->
     <script src="assets/js/index.js"></script>
+</div>
 </body>
 
 </html>
