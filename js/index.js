@@ -60,19 +60,9 @@ let response;
 let quizForm;
 let submitButton = document.getElementById("submit-btn");
 let playAgainBtn = document.getElementById("play-again");
-// let playAgainBtn = document.createElement("button");
-// playAgainBtn.value = "Play Again";
-// let btnList = document.getElementbyId("btn-list");
-// btnList.appendChild(playAgainBtn);
-// console.log(btnList);
+let quitGameBtn = document.getElementById("quit-game");
 
 function askQuestion() {
-  // if (wildlifeQuiz.length < 1) {
-  //   alert("Game Over! Your final score is : " + score);
-  //   nextQButton.style.display = "none";
-  //   document.getElementById("q-heading").innerHTML = "Quiz complete!";
-  // }
-  // else {
   question = document.getElementById("question");
   i = Math.floor(Math.random() * wildlifeQuiz.length);
   // console.log(i); // for debugging
@@ -82,7 +72,6 @@ function askQuestion() {
   console.log(`Correct option is : ${correctAnswer}`); //
 
   displayChoice();
-  // }
 }
 askQuestion();
 //this function src is from https://bost.ocks.org/mike/shuffle/
@@ -121,19 +110,6 @@ function displayChoice() {
 
 function getUserInput(event) {
   event.preventDefault();
-
-  playAgainBtn.addEventListener("click", playAgain);
-
-  // function playAgain() {
-  //   setTimeout(function () {
-  //     location.reload(true);
-  //   }, 1000); // Wait for 1 second (adjust the delay as needed)
-  //   // event.preventDefault;
-  // }
-
-  function playAgain() {
-    location.reload(true);
-  }
   let ans1 = document.getElementById("ans1");
   let ans2 = document.getElementById("ans2");
   let ans3 = document.getElementById("ans3");
@@ -277,4 +253,16 @@ function removeNextQBtn() {
     "next button: ",
     nextQButton.style.display
   );
+}
+
+playAgainBtn.addEventListener("click", playAgain);
+
+function playAgain() {
+  location.reload(true);
+}
+
+quitGameBtn.addEventListener("click", quitGame);
+
+function quitGame() {
+  location.reload(true);
 }

@@ -1,7 +1,3 @@
-#next-q {
-    display:none;
-}
-
-#play-again {
+#next-q, #play-again, #quit-game  {
     display:none;
 }
