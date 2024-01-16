@@ -12,7 +12,7 @@ body {
     color: black;
     background-image:url("../images/favicon.png");
     object-fit: cover;
-    font-size: 1.5em;
+    font-size: 1.3em;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 
 }
@@ -30,6 +30,7 @@ h2 {
 
 .option {
     display: flex;
+    margin-bottom: 5px;
 }
 
 .fa-solid {
@@ -41,7 +42,7 @@ input {
 }
 
 label {
-    padding: 10px;
+    padding: 7px;
     cursor: pointer;
 }
 
@@ -67,8 +68,8 @@ input[type="radio"]:checked + label {
     border: black 20px solid;
     text-align: center;
     max-width: 550px;
-    max-height: 840px;
-    /* word-wrap: break-word; */
+    max-height: 850px;
+    word-wrap: break-word;
     height:100%;
     width:100%;
 }
@@ -83,7 +84,7 @@ input[type="radio"]:checked + label {
     margin-top: 20px;
     padding: 6px;
     border-radius: 10px;
-    /* font-size: 1.1em; */
+    /* font-size: 100%; */
     border: black 7px solid;
     background-color: white;
 }
@@ -111,7 +112,7 @@ input[type="radio"]:checked + label {
     margin-top:20px;
     padding:6px;
     border-radius:10px;
-    /* font-size:110%; */
+    font-size:100%;
     border:black 7px solid;
     background-color: white;
 }
@@ -126,7 +127,7 @@ input[type="radio"]:checked + label {
 }
 
 #quit-game {
-    padding: 10px;
+    padding: 6px;
     border-radius: 10px;
     border: black 7px solid;
     background-color: white;
@@ -139,6 +140,87 @@ input[type="radio"]:checked + label {
 
 /* increases size of FontAwesome 'refresh' icon */
 #refresh {
-    font-size: 1.2em
+    font-size: 2em
 }
 
+/* Media query: 410px or below (for mobile screens) */
+
+@media screen and (max-width: 410px) {
+    /* Hero overlay text */
+    #q-heading {
+      font-size: 80%;
+    }
+
+    #q-container {
+        font-size: 70%;
+        margin-bottom:0;
+    }
+
+    h1 {
+        font-size: 90%;
+    }
+
+    h2 {
+        padding:15px;
+    }
+.option {
+   margin:2px;
+   font-size:80%;
+}
+
+#submit-btn, #next-q, #play-again  {
+    margin-top:10px;
+    font-size:50%;
+}
+
+#response {
+    font-size: 0.8em;
+}
+
+#refresh {
+    font-size: 1.5em;
+}
+}
+
+@media screen and (max-width: 768px) {
+    body {
+    background-image:none;
+}
+}
+
+/* @media screen and (max-width: 410px), screen and (max-height:650px) {
+     Hero overlay text
+    #q-heading {
+      font-size: 80%;
+    }
+
+    #q-container {
+        font-size: 70%;
+        margin-bottom:0;
+    }
+
+    h1 {
+        font-size: 90%;
+    }
+
+    h2 {
+        padding:15px;
+    }
+.option {
+   margin:2px;
+   font-size:80%;
+}
+
+#submit-btn, #next-q, #play-again  {
+    margin-top:10px;
+    font-size:50%;
+}
+
+#response {
+    font-size: 0.8em;
+}
+
+#refresh {
+    font-size: 1.5em;
+}
+} */
