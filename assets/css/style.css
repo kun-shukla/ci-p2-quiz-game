@@ -1,9 +1,12 @@
+
+/* This will override default styling applied by browser */
 *{
     box-sizing: border-box;
     padding: 0 ;
     margin:0 ;
 }
 
+/* Generic styles */
 body {
     display:flex;
     align-items: center;
@@ -14,6 +17,7 @@ body {
     object-fit: cover;
     font-size: 1.3em;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    word-wrap: break-word;
 
 }
 
@@ -30,7 +34,7 @@ h2 {
 
 .option {
     display: flex;
-    margin-bottom: 5px;
+    margin-bottom: 10px;
 }
 
 .fa-solid {
@@ -67,26 +71,23 @@ input[type="radio"]:checked + label {
     background-color:white;
     border: black 20px solid;
     text-align: center;
-    max-width: 550px;
-    max-height: 850px;
-    word-wrap: break-word;
-    height:100%;
-    width:100%;
+    max-width: 500px;
+    max-height: 800px;
 }
 
 #q-container {
     margin-bottom: 15px;
 }
 
-/* Sets 'next question' and 'play again' buttons visibilty to hidden by default */
+/* Sets 'next question' and 'play again' buttons display to none by default */
 #next-q, #play-again{
-    visibility:hidden;
-    margin-top: 20px;
+    display: none;
     padding: 6px;
     border-radius: 10px;
-    /* font-size: 100%; */
+    font-size: 100%;
     border: black 7px solid;
     background-color: white;
+    margin-bottom: 10px;
 }
 
  #play-again:hover {
@@ -123,7 +124,8 @@ input[type="radio"]:checked + label {
 }
 
 #response {
-   padding-top: 30px
+   padding-top: 30px;
+   margin-bottom: 15px;
 }
 
 #quit-game {
@@ -146,13 +148,12 @@ input[type="radio"]:checked + label {
 /* Media query: 410px or below (for mobile screens) */
 
 @media screen and (max-width: 410px) {
-    /* Hero overlay text */
     #q-heading {
-      font-size: 80%;
+      font-size: 85%;
     }
 
     #q-container {
-        font-size: 70%;
+        font-size: 85%;
         margin-bottom:0;
     }
 
@@ -163,18 +164,18 @@ input[type="radio"]:checked + label {
     h2 {
         padding:15px;
     }
+
 .option {
    margin:2px;
    font-size:80%;
 }
 
 #submit-btn, #next-q, #play-again  {
-    margin-top:10px;
-    font-size:50%;
+    font-size:80%;
 }
 
 #response {
-    font-size: 0.8em;
+    font-size: 0.9em;
 }
 
 #refresh {
@@ -182,45 +183,9 @@ input[type="radio"]:checked + label {
 }
 }
 
+/* Removes the 'quiz' background 'wallpaper' for screens sizes below 768px */
 @media screen and (max-width: 768px) {
     body {
     background-image:none;
 }
 }
-
-/* @media screen and (max-width: 410px), screen and (max-height:650px) {
-     Hero overlay text
-    #q-heading {
-      font-size: 80%;
-    }
-
-    #q-container {
-        font-size: 70%;
-        margin-bottom:0;
-    }
-
-    h1 {
-        font-size: 90%;
-    }
-
-    h2 {
-        padding:15px;
-    }
-.option {
-   margin:2px;
-   font-size:80%;
-}
-
-#submit-btn, #next-q, #play-again  {
-    margin-top:10px;
-    font-size:50%;
-}
-
-#response {
-    font-size: 0.8em;
-}
-
-#refresh {
-    font-size: 1.5em;
-}
-} */

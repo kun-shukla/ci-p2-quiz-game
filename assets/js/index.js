@@ -50,7 +50,7 @@ let wildlifeQuiz = [
 ];
 
 // Setup global variables
-let question, i, userChoice, choices, y, correctAnswer, username;
+let i, y, x, userChoice, choices, correctAnswer, question, username;
 let counter = 1;
 let score = 0;
 
@@ -64,8 +64,8 @@ let quitGameBtn = document.getElementById("quit-game");
 let quizForm = document.getElementById("quiz-form"); //Triggers 'quit game' listener
 
 //Fontawesome icons for depicting correct/incorrect answers within span tag.
-let tickIcon = document.createElement("span")
-let xIcon = document.createElement("span")
+let tickIcon = document.createElement("span");
+let xIcon = document.createElement("span");
 
 // Assign innerHTML content to element
 qCount.innerHTML = counter + " of 10";
@@ -83,7 +83,7 @@ function gameStart() {
 }
 
 /**
- * Displays a randomised question with corresponding choices. 
+ * Displays a randomised question with corresponding choices.
  */
 function askQuestion() {
   question = document.getElementById("question");
@@ -154,7 +154,7 @@ function getUserInput(event) {
   ans4.value = wildlifeQuiz[i][1][3];
 
   choices = document.getElementsByName("choice"); // retrives array of input tags by common 'name' attribute value 'choice'
-  
+
   // for loop for checking each element in the array to find the user selected radio button.
   for (y = 0; y < choices.length; y++) {
     if (choices[y].checked) {
@@ -164,27 +164,26 @@ function getUserInput(event) {
   checkAnswer(userChoice); // call back function to capture 'userChoice' variable as a parameter for the 'checkAnswer' function
 }
 
-
-
 /**
  * Checks selected option against the correct answer and indicates correct/incorrect response
  */
 function checkAnswer(selectedOption) {
   console.log("User answer: " + selectedOption);
-//Prevents user from selecting 'next question' and 'submit' buttons after the last question is displayed.
+  //Prevents user from selecting 'next question' and 'submit' buttons after the last question is displayed.
   if (wildlifeQuiz.length === 1) {
-    nextQButton.style.visibility = "hidden";
-    playAgainBtn.style.visibility = "visible"; // option to play game again
-    submitButton.style.visibility = "hidden";
-    quitGameBtn.style.visibility = "hidden"
+    submitButton.style.display = "none";
+    quitGameBtn.style.display = "none";
+    nextQButton.style.display = "none";
+    playAgainBtn.style.display = "inline-block";
   }
 
-//Will run if user chooses correct option and displays a 'tick' mark against the chosen answer
+  //Will run if user chooses correct option and displays a 'tick' mark against the chosen answer
   if (selectedOption === correctAnswer) {
     for (x = 0; x < choices.length; x++) {
-      if (choices[x].checked) { // nested if condition for finding the 'checked' radio button
+      if (choices[x].checked) {
+        // nested if condition for finding the 'checked' radio button
         let radioId = choices[x].id; // the selected radio button's id is used to identify the corresponding label tag (line 185 below)
-        let theLabel = document.querySelector('label[for="' + radioId + '"]'); // 
+        let theLabel = document.querySelector('label[for="' + radioId + '"]'); //
         theLabel.appendChild(tickIcon); // 'tick' mark displays against the respective label tag
         console.log(theLabel.innerHTML);
       }
@@ -194,7 +193,7 @@ function checkAnswer(selectedOption) {
   }
   // Similar to above 'if' block but only runs if the selected option is incorrect
   //if (selectedOption !== correctAnswer) {
-    else{
+  else {
     for (x = 0; x < choices.length; x++) {
       if (choices[x].checked) {
         let radioId = choices[x].id;
@@ -207,7 +206,7 @@ function checkAnswer(selectedOption) {
 
   //Applies to both if conditions above (within the checkAnswer function) - displays the final score after the last question has been answered and checked for correct/incorrect response.
   if (wildlifeQuiz.length === 1) {
-    response.innerHTML = `Hey, ${username}! You Have Completed The Quiz!<strong> Final Score : ${score}</strong>`
+    response.innerHTML = `Hey, ${username}! You Have Completed The Quiz!<strong> Final Score : ${score}</strong>`;
     document.getElementById("q-heading").innerHTML = "Quiz complete!"; //counter heading text changes to indicate end of game.
   }
 }
@@ -240,7 +239,7 @@ function getNextQ() {
 }
 
 /**
- * Removes the answered question from the array so that the same questions does not reappear during the current game. 
+ * Removes the answered question from the array so that the same questions does not reappear during the current game.
  */
 function removeQuestion() {
   wildlifeQuiz.splice(i, 1); // the 'i' variable indicates the current position of the question to be removed, in the array
@@ -251,10 +250,9 @@ function removeQuestion() {
  */
 function removeSubmitBtn() {
   if (wildlifeQuiz.length === 1) {
-    
   } else {
-    submitButton.style.visibility = "hidden";
-    nextQButton.style.visibility = "visible";
+    submitButton.style.display = "none";
+    nextQButton.style.display = "inline-block";
   }
 }
 
@@ -262,9 +260,9 @@ function removeSubmitBtn() {
  * Prevents user jumping head to next question before submission. Hides 'next q' button and makes 'submit' button reappear.
  */
 function removeNextQBtn() {
-  nextQButton.style.visibility = "hidden";
-  submitButton.style.visibility = "visible";
- }
+  submitButton.style.display = "inline-block";
+  nextQButton.style.display = "none";
+}
 
 // option for playing game again after quiz is completed by the user
 function playAgain() {
@@ -287,9 +285,9 @@ quizForm.addEventListener("submit", getUserInput); // Triggers the 'user input' 
 
 quizForm.addEventListener("submit", removeSubmitBtn); //Triggers 'remove submit button' listener after user clicks on the 'submit answer' button
 
-playAgainBtn.addEventListener("click", playAgain);//Triggers 'play again' listener
+playAgainBtn.addEventListener("click", playAgain); //Triggers 'play again' listener
 
-quitGameBtn.addEventListener("click", quitGame);//Triggers 'quit game' listener
+quitGameBtn.addEventListener("click", quitGame); //Triggers 'quit game' listener
 
 //The start of the game
-gameStart(); 
+gameStart();
