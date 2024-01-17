@@ -1,6 +1,6 @@
-# Wildlife quiz-game
+# Wildlife Quiz Game
 
-This web application is a quiz game based on a wildlife theme. The quiz consists of 10 randomly displayed questions with four possible answers to choose from. This app has been built for purposes of entertainment and has been designed for users of all age groups with its straight forward, simple-to-use and responsive one-page design. 
+This web application is a quiz game based on a wildlife theme. The quiz consists of 10 randomly displayed questions with four possible answers to choose from. This app has been built for entertainment and has been designed for users of all age groups with its straightforward, simple-to-use and responsive one-page design. 
 
 The live link can be found here - [Wildlife Quiz Game](https://kun-shukla.github.io/ci-p2-quiz-game/)
 
@@ -9,7 +9,7 @@ The live link can be found here - [Wildlife Quiz Game](https://kun-shukla.github
 [Image Source - Am I Responsive](https://ui.dev/amiresponsive)
 
 ## Design
-The app's black and white color theme gives a simple and striking look and feel to the interface. In addition to this, the catchy background 'QUIZ' image is meant to further enhance a positive emotional experience for the user.
+The app's black and white colour theme gives a simple and striking look and feel to the interface. In addition to this, the catchy background 'QUIZ' image is meant to further enhance a positive emotional experience for the user.
 
 ## Features
 
@@ -23,7 +23,7 @@ The opening screen is a user prompt for entering a name. The name once inputted 
 
 ![quiz-ui](assets/docs/readme-images/quiz-ui.png)
 
-The quiz features an easy to use, intuitive UI. The appealing background 'wallpaper' effect provides a fun and playful look and feel and ties in well with the app's purpose to entertain. The user is presented with four answer options to choose from - each option (which is actually a label tag, with the corresponding radio buttons hidden), when hovered over with the mouse pointer, provides visual feedback and acts as a call-to-action. If the 'Submit Answer' button is clicked on without choosing any of the options a default browser prompt is triggered indicating to the user that they need to choose an option before proceeding. There is also a 'refresh' button at the bottom which allows users to restart the game if they so wish to.
+The quiz features an easy-to-use, intuitive UI. The appealing background 'wallpaper' effect provides a fun and playful look and feel and ties in well with the app's entertainment purpose. The user is presented with four answer options to choose from - each option (which is a label tag, with the corresponding radio buttons hidden), when hovered over with the mouse pointer, provides visual feedback and acts as a call-to-action. If the 'Submit Answer' button is clicked on without choosing any of the options a default browser prompt is triggered indicating to the user that they need to choose an option before proceeding. There is also a 'refresh' button at the bottom that allows users to restart the game if they so wish to.
 
 ### Answer feedback 
 
@@ -38,10 +38,10 @@ Once the user has clicked on the 'Submit answer' button (in the previous screens
 Once the last question has been answered (depicting an incorrect answer in this example) the question counter display text changes to 'quiz complete', below the user inputted name is displayed along with a message displaying their final score. In addition to this, the 'next question' and 'refresh' buttons are replaced with a 'play again!' button. 
 
 ### Potential Future Developments
-- A feature for users to be notified of the correct answer incase they choose incorrectly.
+- A feature for users to be notified of the correct answer in case they choose incorrectly.
 - Updating the initial username prompt to a 'landing' screen where users will be able to not only enter their name but also read an introductory message about the game and how to play, and potentially choose from multiple categories (as detailed below)
 - Multiple categories feature - In time users will have the option to choose from a selection of quiz categories i.e.Sports, Film, Tech etc. Therefore making the game appealing to a wider user base.
-- A login feature - whereby users can retrieve a record of their past scores etc.
+- A login feature - users will be able to retrieve a record of their past scores etc.
 
 ## Testing
 
@@ -61,7 +61,7 @@ Once the last question has been answered (depicting an incorrect answer in this 
 
 ### Browser Testing
 
-- The Webpage was tested on Google Chrome, Safari, Firefox and Microsoft Edge web browsers with no issues observed.
+- The web page was tested on Google Chrome, Safari, Firefox and Microsoft Edge web browsers with no issues observed.
 
 ### Device Testing and responsiveness
 
@@ -71,20 +71,16 @@ Once the last question has been answered (depicting an incorrect answer in this 
 
 #### Issue regarding the randomized nested 'choices' array
 
-- A bug was detected relating to the nested answer choices array. These 'choices' are being randomly displayed using the 'shuffle' function. However prior to that the correct answer always appears at position [0] of the original, randomized array. Prior to shuffling this value is stored in a variable so that it can be used to check answers chosen by the user. When the choices are shuffled the user selected option is checked against that stored correct value. This however was throwing an error from time to time as the array once shuffled was then being used in place of the original array to reference the position [0] element which was no longer the value of the correct answer.
+- A bug was detected relating to the nested answer choices array. These 'choices' are being randomly displayed using the 'shuffle' function. However, before that, the correct answer always appears at position [0] of the original, randomized array. Before shuffling, this value is assigned to the variable 'correctAnswer' so that it can be used to check answers chosen by the user. When the choices are shuffled the user selected option is checked against that stored correct value. This however was throwing an error from time to time as the array once shuffled was then being used in place of the original array to reference the position [0] element which was no longer the value of the correct answer.
 - To get around this problem the splice function was used to remove questions already displayed and therefore the above issue was effectively bypassed.
 
-#### Issue related to 'Next question' button not behaving as intended
-- Another bug that was discovered was to do with an issue relating to how the form element was being handled on clicking the 'NextQButton'. It was behaving as though the event associated with the 'Submit' button was triggered.
+#### Issue related to the 'Next question' button not behaving as intended
+- Another bug that was discovered had to do with an issue relating to how the form element was being handled on clicking the 'NextQButton'. It was behaving as though the event associated with the 'Submit' button was triggered.
 - This was resolved  by removing the 'NextQ' button from within the form tag so that just the 'submit' button was within the form.
 
-#### Issue related to 'Next question' button not behaving as intended
-- Another bug that was discovered was to do with an issue relating to how the form element was being handled on clicking the 'NextQButton'. It was behaving as though the event associated with the 'Submit' button was triggered.
-- This was resolved  by removing the 'NextQ' button from within the form tag so that just the 'submit' button was within the form.
-
-#### Form validation did not work when user clicked on submit button without selecting an option first
-- In order to make the UI look more appealing the radio button input tags were set to 'display: none' with only the associated label tag values displayed on the screen. This led to an issue whereby there was no longer a browser generated prompt asking users to select one of the four options before submitting the form as this is validation mechanism is attached to the input tags which where now hidden.
-- I initially attempted to use JS borrowed from an online resource to try to tackle this problem however it did not work for me. On further research I came a simple piece of CSS to fix this which This allowed for the input tag's normal functionality to be maintained whilst keeping the radio buttons hidden without using any layout space as shown in the below code snippet - 
+#### Form validation did not work when the user clicked on the 'submit' button without selecting an option first
+- To make the UI look more appealing the radio button input tags were set to 'display: none' with only the associated label tag values displayed on the screen. This led to an issue whereby there was no longer a browser-generated prompt asking users to select one of the four options before submitting the form as this validation mechanism is attached to the input tags which were now hidden.
+- I initially attempted to use JS borrowed from an online resource to try to tackle this problem however it did not work for me. On further research, I came across a simple piece of CSS to fix this which allowed for the input tag's normal functionality to be maintained whilst keeping the radio buttons hidden without using any layout space as shown in the below code snippet - 
 ```
 input {
 position: fixed;
@@ -95,7 +91,7 @@ pointer-events: none;
 ```
 
 ### Known bugs
-- The prompt for asking users to enter their name before the start of the game can be left blank by either clicking 'cancel' / 'ok' buttons or the 'Esc' key. This leads to a bug whereby the username appears as 'null' when the final score is shown, as shown below - 
+- The prompt for asking users to enter their name before the start of the game can be left blank by either clicking the 'cancel' / 'ok' buttons or the 'Esc' key. This leads to a bug whereby the username appears as 'null' when the final score is shown, as shown below - 
  ![Username bug](assets/docs/readme-images/name-bug.png)
 
  ## Technologies Used
@@ -126,9 +122,9 @@ The live link can be found here - [Wildlife Quiz Game](https://kun-shukla.github
 
 All media files were sourced from the below websites and attributed to the following photographers:
 
-- [Am I Responsive](http://ami.responsivedesign.is/) - for the Readme file's hero image depicting a mock-up of how the web page looks like across different device screen sizes.
+- [Am I Responsive](http://ami.responsivedesign.is/) - for the Readme file's hero image depicting a mock-up of how the web page looks across different device screen sizes.
 - [Flaticon (Freepik Company)](https://www.flaticon.com) - for the site's favicon and background 'wallpaper' images.
-- [Font Awesome](https://fontawesome.com/) - Used for 'restart game' icon.
+- [Font Awesome](https://fontawesome.com/) - Used for the 'restart game' icon.
 
 ### Online Resources Used
 
