@@ -42,7 +42,9 @@ h2 {
 }
 
 input {
-    display: none;
+position: fixed;
+opacity: 0;
+pointer-events: none;
 }
 
 label {
