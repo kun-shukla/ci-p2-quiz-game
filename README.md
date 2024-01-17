@@ -75,8 +75,8 @@ Once the last question has been answered (depicting an incorrect answer in this 
 - To get around this problem the splice function was used to remove questions already displayed and therefore the above issue was effectively bypassed.
 
 #### Issue related to the 'Next question' button not behaving as intended
-- Another bug that was discovered had to do with an issue relating to how the form element was being handled on clicking the 'NextQButton'. It was behaving as though the event associated with the 'Submit' button was triggered.
-- This was resolved  by removing the 'NextQ' button from within the form tag so that just the 'submit' button was within the form.
+- Another bug that was discovered had to do with an issue relating to how the 'NextQButton' listener was behaving. Clicking this button appeared to trigger the 'event listener' associated with the 'Submit' button instead.
+- This was resolved  by simply removing the 'next question' button from within the form tag so that just the 'submit' button was within the form.
 
 #### Form validation did not work when the user clicked on the 'submit' button without selecting an option first
 - To make the UI look more appealing the radio button input tags were set to 'display: none' with only the associated label tag values displayed on the screen. This led to an issue whereby there was no longer a browser-generated prompt asking users to select one of the four options before submitting the form as this validation mechanism is attached to the input tags which were now hidden.
