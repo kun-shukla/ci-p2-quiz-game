@@ -123,7 +123,7 @@ The live link can be found here - [Wildlife Quiz Game](https://kun-shukla.github
 Media files were sourced from the below websites:
 
 - [Am I Responsive](http://ami.responsivedesign.is/) - for the Readme file's hero image depicting a mock-up of how the web page looks across different device screen sizes.
-- [Flaticon (Freepik Company)](https://www.flaticon.com) - for the site's favicon and background 'wallpaper' images.
+- [Flaticon (Freepik Company)](https://www.flaticon.com) - for the site's favicon and background 'wallpaper' image.
 - [Font Awesome](https://fontawesome.com/) - Used for the 'restart game' icon.
 
 ### Online Resources Used
