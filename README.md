@@ -126,9 +126,9 @@ Media files were sourced from the below websites:
 - [Flaticon (Freepik Company)](https://www.flaticon.com) - for the site's favicon and background 'wallpaper' image.
 - [Font Awesome](https://fontawesome.com/) - Used for the 'restart game' icon.
 
-### Online Resources Used
+### Online Resources Used (for troubleshooting related queries)
 
-- [ChatGPT](https://chat.openai.com) - Used for at times for troubleshooting related queries
+- [ChatGPT](https://chat.openai.com)
 - [Stack Overflow](https://stackoverflow.com/)
 - [W3Schools](https://www.w3schools.com/)
 
