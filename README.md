@@ -1,6 +1,6 @@
 # Wildlife Quiz Game
 
-This web application is a quiz game based on a wildlife theme. The quiz consists of 10 randomly displayed questions with four possible answers to choose from. This app has been built for entertainment and has been designed for users of all age groups with its straightforward, simple-to-use and responsive one-page design. 
+This web application is a quiz game based on a wildlife theme. The quiz consists of 10 randomly displayed questions with four possible answers to choose from. This app has been built for entertainment and has been designed for users of all age groups with its straightforward, simple-to-use and responsive one-page design.
 
 The live link can be found here - [Wildlife Quiz Game](https://kun-shukla.github.io/ci-p2-quiz-game/)
 
@@ -9,6 +9,7 @@ The live link can be found here - [Wildlife Quiz Game](https://kun-shukla.github
 [Image Source - Am I Responsive](https://ui.dev/amiresponsive)
 
 ## Design
+
 The app's black and white colour theme gives a simple and striking look and feel to the interface. In addition to this, the catchy background 'QUIZ' image is meant to further enhance a positive emotional experience for the user.
 
 ## Features
@@ -25,7 +26,7 @@ The opening screen is a user prompt for entering a name. The name once inputted 
 
 The quiz features an easy-to-use, intuitive UI. The appealing background 'wallpaper' effect provides a fun and playful look and feel and ties in well with the app's entertainment purpose. The user is presented with four answer options to choose from - each option (which is a label tag, with the corresponding radio buttons hidden), when hovered over with the mouse pointer, provides visual feedback and acts as a call-to-action. If the 'Submit Answer' button is clicked on, without choosing any of the options, a default browser prompt is triggered indicating to the user that they need to choose an option before proceeding. There is also a 'refresh' button at the bottom that allows users to restart the game if they so wish to.
 
-### Answer feedback 
+### Answer feedback
 
 ![Answer feedback](assets/docs/readme-images/answer-check.png)
 
@@ -35,9 +36,10 @@ Once the user has clicked on the 'Submit answer' button (in the previous screens
 
 ![Answer feedback](assets/docs/readme-images/end-of-game.png)
 
-Once the last question has been answered (depicting an incorrect answer in this example) the question counter display text changes to 'quiz complete'. Further down, the user inputted name is displayed along with a message displaying their final score. In addition to this, the 'next question' and 'refresh' buttons are replaced with a 'play again!' button. 
+Once the last question has been answered (depicting an incorrect answer in this example) the question counter display text changes to 'quiz complete'. Further down, the user inputted name is displayed along with a message displaying their final score. In addition to this, the 'next question' and 'refresh' buttons are replaced with a 'play again!' button.
 
 ### Potential Future Developments
+
 - A feature for users to be notified of the correct answer in case they choose incorrectly.
 - Updating the initial username prompt to a 'landing' screen where users will be able to not only enter their name but also read an introductory message about the game and how to play, and potentially choose from multiple categories (as detailed below)
 - Multiple categories feature - In time, users will have the option to choose from a selection of quiz categories i.e.Sports, Film, Tech etc. Therefore making the game appealing to a wider user base.
@@ -54,6 +56,11 @@ Once the last question has been answered (depicting an incorrect answer in this 
 
   - No errors were found when passing through the official W3C CSS Validator
     ![W3C CSS Validator image](assets/docs/readme-images/validator-css.png)
+
+- #### Javascript
+
+  - No errors were found when passing through the official JSHint Javascript Validator. The following metrics were generated:
+    ![JSHint Javascript Validator](assets/docs/readme-images/jshint-validator.png)
 
 - #### Accessibility
   - The site achieved a Lighthouse (Chrome Dev tools) accessibility score of 100% which confirms that the colors and fonts chosen are easy to read and accessible
@@ -75,12 +82,15 @@ Once the last question has been answered (depicting an incorrect answer in this 
 - To get around this problem the splice function was used to remove questions already displayed and therefore the above issue was effectively bypassed.
 
 #### Issue related to the 'Next question' button not behaving as intended
+
 - Another bug that was discovered had to do with an issue relating to how the 'NextQButton' listener was behaving. Clicking this button appeared to trigger the 'event listener' associated with the 'Submit' button instead.
-- This was resolved  by simply removing the 'next question' button from within the form tag so that just the 'submit' button was within the form.
+- This was resolved by simply removing the 'next question' button from within the form tag so that just the 'submit' button was within the form.
 
 #### Form validation did not work when the user clicked on the 'submit' button without selecting an option first
+
 - To make the UI look more appealing the radio button input tags were set to 'display: none' with only the associated label tag values displayed on the screen. This led to an issue whereby there was no longer a browser-generated prompt asking users to select one of the four options before submitting the form (as this validation mechanism is attached to the input tags which were now hidden).
-- I initially attempted to use JS borrowed from an online resource to try to tackle this problem however it did not work for me. On further research, I came across a simple piece of CSS to fix this which allowed for the input tag's normal functionality to be maintained whilst keeping the radio buttons hidden (without using any layout space), as shown in the below code snippet - 
+- I initially attempted to use JS borrowed from an online resource to try to tackle this problem however it did not work for me. On further research, I came across a simple piece of CSS to fix this which allowed for the input tag's normal functionality to be maintained whilst keeping the radio buttons hidden (without using any layout space), as shown in the below code snippet -
+
 ```
 input {
 position: fixed;
@@ -91,19 +101,23 @@ pointer-events: none;
 ```
 
 ### Known bugs
-- The prompt for asking users to enter their name before the start of the game can be left blank by either clicking the 'cancel' / 'ok' buttons or the 'Esc' key. This leads to a bug whereby the username appears as 'null' when the final score is displayed, as shown below - 
- ![Username bug](assets/docs/readme-images/name-bug.png)
 
- ## Technologies Used
+- The prompt for asking users to enter their name before the start of the game can be left blank by either clicking the 'cancel' / 'ok' buttons or the 'Esc' key. This leads to a bug whereby the username appears as 'null' when the final score is displayed, as shown below -
+  ![Username bug](assets/docs/readme-images/name-bug.png)
+
+## Technologies Used
+
 - Javascript
 - CSS
 - HTML5
 
 ### Programs / Tools Used
+
 - [Chrome Dev Tools](https://developer.chrome.com/docs/devtools/) - Used for overall development and troubleshooting. As well as for testing responsiveness and site performance scores (Lighthouse)
 - [GitHub](https://github.com/) - Used for version control and deployment.
 - [Visual Studio Code](https://code.visualstudio.com) - Used as the code editor.
 - [W3C](https://www.w3.org/) - Used for HTML & CSS Validation.
+- [JSHint](https://jshint.com/) - Used for Javascript Validation.
 
 ## Deployment
 
