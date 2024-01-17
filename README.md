@@ -15,7 +15,7 @@ The app's black and white color theme gives a simple and striking look and feel 
 
 ### Pre-game screen
 
-![enter-username](assets/docs/readme-images/enter-username.png)
+![enter-username](assets/docs/readme-images/enter-name.png)
 
 The opening screen is a user prompt for entering a name. The name once inputted is stored and is displayed at the end of the game alongwith the user's final score.
 

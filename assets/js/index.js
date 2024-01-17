@@ -78,7 +78,7 @@ xIcon.innerHTML = `<i class="fa-solid fa-circle-xmark" style="color: #e32400;"><
  * Game starts here with a 'Enter name' user prompt
  */
 function gameStart() {
-  username = prompt("Welcome to the Wildlife Quiz! \n Please enter your name, to start the game! ");
+  username = prompt("Welcome to the Wildlife Quiz!\nPlease enter your name, to start the game! ");
   askQuestion(); // function call for displaying randomised questions / choices
 }
 
