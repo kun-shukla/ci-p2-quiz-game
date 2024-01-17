@@ -120,7 +120,7 @@ The live link can be found here - [Wildlife Quiz Game](https://kun-shukla.github
 
 ### Media
 
-All media files were sourced from the below websites and attributed to the following photographers:
+Media files were sourced from the below websites:
 
 - [Am I Responsive](http://ami.responsivedesign.is/) - for the Readme file's hero image depicting a mock-up of how the web page looks across different device screen sizes.
 - [Flaticon (Freepik Company)](https://www.flaticon.com) - for the site's favicon and background 'wallpaper' images.
