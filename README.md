@@ -71,7 +71,7 @@ Once the last question has been answered (depicting an incorrect answer in this 
 
 #### Issue regarding the randomized nested 'choices' array
 
-- A bug was detected relating to the nested answer choices array. These 'choices' are being randomly displayed using the 'shuffle' function. However, before that, the correct answer always appears at position [0] of the original, randomized array. Before shuffling, this value is assigned to the variable 'correctAnswer' so that it can be used to check answers chosen by the user. When the choices are shuffled the user selected option is checked against that stored correct value. This however was throwing an error from time to time as the array once shuffled was then being used in place of the original array to reference the position [0] element which was no longer the value of the correct answer.
+- A bug was detected relating to the nested answer choices array. These 'choices' are being randomly displayed using the 'shuffle' function. Before the shuffle function is called the correct answer always appears at position [0] of the original array. This value is assigned to the variable 'correctAnswer' so that it can be used to check answers chosen by the user. When the choices are shuffled the user selected option is checked against that stored correct value. This however was throwing an error from time to time as the array once shuffled was then being used in place of the original array to reference the position [0] element which was no longer the value of the correct answer.
 - To get around this problem the splice function was used to remove questions already displayed and therefore the above issue was effectively bypassed.
 
 #### Issue related to the 'Next question' button not behaving as intended
