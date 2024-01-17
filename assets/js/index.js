@@ -1,6 +1,6 @@
 //Array of quiz questions
 let wildlifeQuiz = [
-  //each element in the array has the question in postion[0]. The possible answers to the question is stored in a nested array in postion[1] with the correct answer located in position[0] of the nested array.
+  //each element in the array has the question in position[0]. The possible answers to the question is stored in a nested array in position[1] with the correct answer located in position[0] of the nested array.
   [
     "What is the largest big cat in the world?",
     ["Tiger", "Lion", "Cheetah", "Jaguar"],
@@ -63,7 +63,7 @@ let playAgainBtn = document.getElementById("play-again");
 let quitGameBtn = document.getElementById("quit-game");
 let quizForm = document.getElementById("quiz-form"); //Triggers 'quit game' listener
 
-//Fontawesome icons for depicting correct/incorrect answers within span tag.
+//Font Awesome icons for depicting correct/incorrect answers within span tag.
 let tickIcon = document.createElement("span");
 let xIcon = document.createElement("span");
 
@@ -153,7 +153,7 @@ function getUserInput(event) {
   ans3.value = wildlifeQuiz[i][1][2];
   ans4.value = wildlifeQuiz[i][1][3];
 
-  choices = document.getElementsByName("choice"); // retrives array of input tags by common 'name' attribute value 'choice'
+  choices = document.getElementsByName("choice"); // retrieves array of input tags by common 'name' attribute value 'choice'
 
   // for loop for checking each element in the array to find the user selected radio button.
   for (y = 0; y < choices.length; y++) {
@@ -270,7 +270,7 @@ function playAgain() {
 }
 
 /**
- * option for qutting the game (depicted as a FontAwesome 'refresh' icon)
+ * option for quitting the game (depicted as a FontAwesome 'refresh' icon)
  */
 function quitGame() {
   location.reload(true); // page hard refresh
