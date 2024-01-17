@@ -80,7 +80,7 @@ Once the last question has been answered (depicting an incorrect answer in this 
 
 #### Form validation did not work when the user clicked on the 'submit' button without selecting an option first
 - To make the UI look more appealing the radio button input tags were set to 'display: none' with only the associated label tag values displayed on the screen. This led to an issue whereby there was no longer a browser-generated prompt asking users to select one of the four options before submitting the form (as this validation mechanism is attached to the input tags which were now hidden).
-- I initially attempted to use JS borrowed from an online resource to try to tackle this problem however it did not work for me. On further research, I came across a simple piece of CSS to fix this which allowed for the input tag's normal functionality to be maintained whilst keeping the radio buttons hidden without using any layout space as shown in the below code snippet - 
+- I initially attempted to use JS borrowed from an online resource to try to tackle this problem however it did not work for me. On further research, I came across a simple piece of CSS to fix this which allowed for the input tag's normal functionality to be maintained whilst keeping the radio buttons hidden (without using any layout space), as shown in the below code snippet - 
 ```
 input {
 position: fixed;
