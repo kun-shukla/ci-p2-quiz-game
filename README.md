@@ -35,7 +35,7 @@ Once the user has clicked on the 'Submit answer' button (in the previous screens
 
 ![Answer feedback](assets/docs/readme-images/end-of-game.png)
 
-Once the last question has been answered (depicting an incorrect answer in this example) the question counter display text changes to 'quiz complete', below the user inputted name is displayed along with a message displaying their final score. In addition to this, the 'next question' and 'refresh' buttons are replaced with a 'play again!' button. 
+Once the last question has been answered (depicting an incorrect answer in this example) the question counter display text changes to 'quiz complete'. Further down, the user inputted name is displayed along with a message displaying their final score. In addition to this, the 'next question' and 'refresh' buttons are replaced with a 'play again!' button. 
 
 ### Potential Future Developments
 - A feature for users to be notified of the correct answer in case they choose incorrectly.
