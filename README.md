@@ -23,7 +23,7 @@ The opening screen is a user prompt for entering a name. The name once inputted 
 
 ![quiz-ui](assets/docs/readme-images/quiz-ui.png)
 
-The quiz features an easy-to-use, intuitive UI. The appealing background 'wallpaper' effect provides a fun and playful look and feel and ties in well with the app's entertainment purpose. The user is presented with four answer options to choose from - each option (which is a label tag, with the corresponding radio buttons hidden), when hovered over with the mouse pointer, provides visual feedback and acts as a call-to-action. If the 'Submit Answer' button is clicked on without choosing any of the options a default browser prompt is triggered indicating to the user that they need to choose an option before proceeding. There is also a 'refresh' button at the bottom that allows users to restart the game if they so wish to.
+The quiz features an easy-to-use, intuitive UI. The appealing background 'wallpaper' effect provides a fun and playful look and feel and ties in well with the app's purpose to entertain. The user is presented with four answer options to choose from - each option (which is a label tag, with the corresponding radio buttons hidden), when hovered over with the mouse pointer, provides visual feedback and acts as a call-to-action. If the 'Submit Answer' button is clicked on without choosing any of the options a default browser prompt is triggered indicating to the user that they need to choose an option before proceeding. There is also a 'refresh' button at the bottom that allows users to restart the game if they so wish to.
 
 ### Answer feedback 
 
