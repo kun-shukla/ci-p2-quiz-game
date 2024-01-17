@@ -13,7 +13,7 @@ body {
     justify-content: center;
     height: 100vh;
     color: black;
-    background-image:url("../images/favicon.png");
+    background-image:url("../images/bg-img.png");
     object-fit: cover;
     font-size: 1.3em;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -41,7 +41,7 @@ h2 {
     margin-left: 10px;
 }
 
-/* Fix for 'hidden' radio buttons displaying user prompt when 'submit' button is clicked without any option selected */
+/* Fix for 'hidden' radio buttons displaying user prompt when 'submit' button is clicked without any option selected. Sourced from Stack Overflow - https://bit.ly/47THUWB */
 input {
 position: fixed;
 opacity: 0;
