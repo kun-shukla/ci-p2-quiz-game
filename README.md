@@ -1,2 +1,2 @@
-# ci-p2-quiz-game
+# Wildlife quiz-game
 

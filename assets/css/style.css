@@ -41,6 +41,7 @@ h2 {
     margin-left: 10px;
 }
 
+/* Fix for 'hidden' radio buttons displaying user prompt when 'submit' button is clicked without any option selected */
 input {
 position: fixed;
 opacity: 0;
