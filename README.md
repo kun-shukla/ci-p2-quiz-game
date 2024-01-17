@@ -31,17 +31,32 @@ The quiz features an easy to use, intuitive UI. The appealing background 'wallpa
 
 Once the user has clicked on the 'Submit answer' button (in the previous screenshot), the selected option displays either a green 'tick' or red 'cross' indicating a right or wrong answer respectively. If the answer is correct the 'current score' is incremented by 1. In addition, the 'Submit Answer' button is no longer displayed and is replaced by a 'next question' button (therefore preventing an accidental click). On clicking the 'next question' button the next question is displayed and the 'question counter' below the 'Play the Quiz' heading increments by 1.
 
-### 'End of game' screen
+### 'End of game' Screen
 
 ![Answer feedback](assets/docs/readme-images/end-of-game.png)
 
 Once the last question has been answered (depicting an incorrect answer in this example) the question counter display text changes to 'quiz complete', below the user inputted name is displayed along with a message displaying thier final score. In addition to this, the 'next question' and 'refresh' buttons are replaced with a 'play again!' button. 
 
+### Potential Future Developements
+- A feature for users to be notified of the correct answer incase they choose incorrectly.
+- Updating the intial username prompt to a 'landing' screen where users will be able to not only enter thier name but also read an introdutory message about the game and how to play, and potentially choose from mutiple categores (as detailed below)
+- Mutliple categories feature - In time users will have the option to choose from a selection of quiz categories i.e.Sports, Film, Tech etc. Therefore making the game appealing to a wider user base.
+- A login feature - whereby users can retrieve a record of their past scores etc.
 
+## Testing
 
+### Validator Testing
 
+- #### HTML
+  - No errors were returned when passing through the official W3C Markup Validator
+    ![W3C Markup Validator](assets/docs/readme-images/validator-html.png)
+- #### CSS
 
+  - No errors were found when passing through the official W3C CSS Validator
+    ![W3C CSS Validator image](assets/docs/readme-images/validator-css.png)
 
-
+- #### Accessibility
+- The site achieved a Lighthouse (Chrome Dev tools) accessibility score of 94% which confirms that the colours and fonts chosen are easy to read and accessible
+    ![Lighthouse score image](assets/docs/readme-images/lighthouse-testing.webp)
 
 
