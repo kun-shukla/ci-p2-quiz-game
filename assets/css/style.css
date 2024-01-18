@@ -41,6 +41,10 @@ h2 {
     color: black;
 }
 
+.fa.fa-refresh:after {
+    color: white;
+}
+
 .fa-solid {
     margin-left: 10px;
 }
