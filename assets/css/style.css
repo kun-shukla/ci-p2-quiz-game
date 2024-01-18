@@ -136,6 +136,7 @@ input[type="radio"]:checked + label {
     padding: 6px;
     border-radius: 10px;
     border: black 7px solid;
+    color:black;
 }
 
 #quit-game:hover {
