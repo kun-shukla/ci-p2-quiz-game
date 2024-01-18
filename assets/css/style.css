@@ -92,7 +92,7 @@ input[type="radio"]:checked + label {
     background-color: white;
     margin-bottom: 10px;
     color: black;
-    font-weight:400;
+    font-weight:450;
 }
 
  #play-again:hover {
