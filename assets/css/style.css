@@ -37,14 +37,6 @@ h2 {
     margin-bottom: 10px;
 }
 
-.fa.fa-refresh:before {
-    color: black;
-}
-
-.fa:hover {
-    color:white;
-}
-
 .fa-solid {
     margin-left: 10px;
 }
@@ -144,11 +136,11 @@ input[type="radio"]:checked + label {
     padding: 6px;
     border-radius: 10px;
     border: black 7px solid;
-    background-color: white;
 }
 
 #quit-game:hover {
     background-color: black;
+    color:white;
 }
 
 /* increases size of FontAwesome 'refresh' icon */
