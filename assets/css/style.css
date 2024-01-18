@@ -91,6 +91,7 @@ input[type="radio"]:checked + label {
     border: black 7px solid;
     background-color: white;
     margin-bottom: 10px;
+    color: black;
 }
 
  #play-again:hover {
