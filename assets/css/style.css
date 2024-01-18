@@ -37,13 +37,9 @@ h2 {
     margin-bottom: 10px;
 }
 
-.fa.fa-refresh:before {
+/* .fa.fa-refresh:before {
     color: black;
-}
-
-.fa.fa-refresh:after {
-    color: white;
-}
+} */
 
 .fa-solid {
     margin-left: 10px;
@@ -127,7 +123,6 @@ input[type="radio"]:checked + label {
     font-size:100%;
     border:black 7px solid;
     background-color: white;
-    color:black;
 }
 
 #submit-btn:hover {
