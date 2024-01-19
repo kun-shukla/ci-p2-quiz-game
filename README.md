@@ -102,6 +102,7 @@ pointer-events: none;
 
 ### Known bugs
 
+[UPDATE: NOW RESOLVED]
 - The prompt for asking users to enter their name before the start of the game can be left blank by either clicking the 'cancel' / 'ok' buttons or the 'Esc' key. This leads to a bug whereby the username appears as 'null' when the final score is displayed, as shown below -
   ![Username bug](assets/docs/readme-images/name-bug.png)
 
