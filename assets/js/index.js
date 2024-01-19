@@ -78,8 +78,24 @@ xIcon.innerHTML = `<i class="fa-solid fa-circle-xmark" style="color: #e32400;"><
  * Game starts here with a 'Enter name' user prompt
  */
 function gameStart() {
-  username = prompt("Welcome to the Wildlife Quiz!\nPlease enter your name, to start the game! ");
+  enterUsername(); // function call for prompting user to enter a username
+
   askQuestion(); // function call for displaying randomised questions / choices
+}
+
+/**
+ * Prompts user to enter a username.
+ */
+function enterUsername() {
+  username = prompt(
+    "Welcome to the Wildlife Quiz!\nPlease enter your name, to start the game! "
+  );
+  // If user does not enter a value. The displayed username at the end of the game will be "Gamer" instead.
+  if (username) {
+    return;
+  } else {
+    username = "Gamer";
+  }
 }
 
 /**
