@@ -58,6 +58,8 @@ let score = 0;
 let qCount = document.getElementById("q-counter");
 let response = document.getElementById("response");
 let submitButton = document.getElementById("submit-btn");
+let correctAns = document.createElement("p");
+correctAns.setAttribute("id", "correct-ans"); //Assign a value to 'id' of 'correctAns' element
 let nextQButton = document.getElementById("next-q");
 let playAgainBtn = document.getElementById("play-again");
 let quitGameBtn = document.getElementById("quit-game");
@@ -67,11 +69,10 @@ let quizForm = document.getElementById("quiz-form"); //Triggers 'quit game' list
 let tickIcon = document.createElement("span");
 let xIcon = document.createElement("span");
 
-// Assign innerHTML content to element
+// Assign innerHTML/textContent to element
 qCount.innerHTML = counter + " of 10";
 tickIcon.innerHTML = `<i class="fa-solid fa-circle-check" style="color: #63E6BE;"></i>`;
 xIcon.innerHTML = `<i class="fa-solid fa-circle-xmark" style="color: #e32400;"></i>`;
-
 //Set up of Functions
 
 /**
@@ -201,23 +202,20 @@ function checkAnswer(selectedOption) {
         let radioId = choices[x].id; // the selected radio button's id is used to identify the corresponding label tag (line 185 below)
         let theLabel = document.querySelector('label[for="' + radioId + '"]'); //
         theLabel.appendChild(tickIcon); // 'tick' mark displays against the respective label tag
-        console.log(theLabel.innerHTML);
       }
     }
-    console.log("User inputted correct answer");
     keepScore(); // score is added if chosen option is correct
   }
   // Similar to above 'if' block but only runs if the selected option is incorrect
-  //if (selectedOption !== correctAnswer) {
   else {
     for (x = 0; x < choices.length; x++) {
       if (choices[x].checked) {
         let radioId = choices[x].id;
         let theLabel = document.querySelector('label[for="' + radioId + '"]');
         theLabel.appendChild(xIcon);
-        console.log(theLabel.innerHTML);
       }
     }
+    displayCorrectAns(); //correct answer displayed if user gets answer wrong
   }
 
   //Applies to both if conditions above (within the checkAnswer function) - displays the final score after the last question has been answered and checked for correct/incorrect response.
@@ -228,7 +226,15 @@ function checkAnswer(selectedOption) {
 }
 
 /**
- * Tracks user score increments by 1 when user answer is correct
+ * Displays the correct answer
+ */
+function displayCorrectAns() {
+  correctAns.textContent = `Correct answer: ${correctAnswer}`;
+  response.parentNode.insertBefore(correctAns, response); //inserts the para element with an id of 'correctAns' before div with id of 'response'
+}
+
+/**
+ * Tracks user score. Increments by 1 when user answer is correct
  */
 function keepScore() {
   score++;
@@ -248,10 +254,10 @@ function qCounter() {
  */
 function getNextQ() {
   removeQuestion(); // removes answered question from array
-  console.log(wildlifeQuiz);
   quizForm.reset(); // resets form to deselect the selected radio button from the previous question
   askQuestion(); // asks the next question
   qCounter(); // increments quiz counter heading by 1
+  correctAns.textContent = ""; //clears text content of the para displaying the correct answer
 }
 
 /**

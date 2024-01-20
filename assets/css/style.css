@@ -114,6 +114,12 @@ input[type="radio"]:checked + label {
     height:200px;
 }
 
+#correct-ans {
+color: #63e6be;
+font-weight: bold;
+font-size: 1rem;
+}
+
 #submit-btn {
     margin-top:20px;
     padding:6px;
