@@ -40,7 +40,7 @@ Once the last question has been answered (depicting an incorrect answer in this 
 
 ### Potential Future Developments
 
-- A feature for users to be notified of the correct answer in case they choose incorrectly.
+- A feature for users to be notified of the correct answer in case they choose incorrectly. [UPDATE: FEATURE IMPLEMENTED]
 - Updating the initial username prompt to a 'landing' screen where users will be able to not only enter their name but also read an introductory message about the game and how to play, and potentially choose from multiple categories (as detailed below)
 - Multiple categories feature - In time, users will have the option to choose from a selection of quiz categories i.e.Sports, Film, Tech etc. Therefore making the game appealing to a wider user base.
 - A login feature - users will be able to retrieve a record of their past scores etc.
